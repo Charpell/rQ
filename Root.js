@@ -7,6 +7,7 @@ import { Block } from './src/components'
 
 import Navigation from './src/navigation'
 import AuthState from './src/contex/auth/authState'
+import { VendorState } from './src/contex'
 
 console.disableYellowBox = true;
 
@@ -40,9 +41,11 @@ class Root extends Component {
 
     return (
       <AuthState>
-        <Block>
-          <Navigation />
-        </Block>
+        <VendorState>
+          <Block>
+            <Navigation />
+          </Block>
+        </VendorState>
       </AuthState>
     )
   }
