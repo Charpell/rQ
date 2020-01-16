@@ -13,10 +13,13 @@ import BackButton from './BackButton'
 import LoadingOverlay from './LoadingOverlay'
 import LottieAnimation from './LottieAnimation'
 import ToggleIcon from './ToggleIcon'
+import Avatar from './Avatar'
+import IconComp from './IconComp'
+import FavouriteService from './FavouriteService'
 
 export { 
   Block, Card, Button, Text, Input, Badge,
   MenuButton, NotificationButton, Notifications,
   ForwardButton, BackButton, LoadingOverlay, LottieAnimation,
-  ToggleIcon
+  ToggleIcon, Avatar, IconComp, FavouriteService
 }

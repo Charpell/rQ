@@ -13,7 +13,8 @@ console.disableYellowBox = true;
 
 const images = [
   require('./src/assets/icons/back.png'),
-  require('./src/assets/icons/plants.png')
+  require('./src/assets/icons/plants.png'),
+  require('./src/assets/images/ebuka.jpg')
 ]
 
 class Root extends Component {

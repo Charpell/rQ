@@ -8,12 +8,15 @@ import { images, theme } from '../../constants'
 const { SIZES, COLORS } = theme
 
 import WalletScreen from '../../screens/Wallet/WalletScreen'
+import AddWalletScreen from '../../screens/Wallet/AddMoneyScreen'
 
 const activeColor = COLORS.primary;
 const inactiveColor = COLORS.secondary;
 
 const WalletNavigator = createStackNavigator({
-  WalletScreen
+  AddWalletScreen,
+
+  WalletScreen,
 }, {
   defaultNavigationOptions: {
     headerStyle: {

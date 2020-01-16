@@ -13,4 +13,6 @@ export default createDrawerNavigator({
   contentOptions: {
     activeBackgrundColor: 'transparent'
   }
+}, {
+  headerMode: "none"
 })

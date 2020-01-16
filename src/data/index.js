@@ -103,3 +103,59 @@ export const sideMenuBar = [
     name: 'Terms and Privacy'
   }
 ]
+
+export const service = [
+  {
+    id: 1,
+    icon: 'home',
+    name: 'Mobile Prepaid'
+  },
+  {
+    id: 2,
+    icon: 'user-o',
+    name: 'Pay Bill'
+  },
+  {
+    id: 3,
+    icon: 'cog',
+    name: 'Cable TV'
+  },
+  {
+    id: 4,
+    icon: 'comment-o',
+    name: 'Saving Plan'
+  },
+  {
+    id: 5,
+    icon: 'question',
+    name: 'Grow Wealth'
+  },
+  {
+    id: 6,
+    icon: 'stack-exchange',
+    name: 'Electricity'
+  },
+  {
+    id: 7,
+    icon: 'stack-exchange',
+    name: 'Electricity'
+  }
+]
+
+export const moneyCards = [
+  {
+    id: 1,
+    icon: '1',
+    name: 'Via Card Number'
+  },
+  {
+    id: 2,
+    icon: '1',
+    name: 'Via Bank Transfer'
+  },
+  {
+    id: 3,
+    icon: '1',
+    name: 'Via USSD Code'
+  },
+]

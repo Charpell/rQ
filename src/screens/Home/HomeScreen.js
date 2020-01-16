@@ -1,25 +1,24 @@
 import React, { useContext, useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View,  SafeAreaView } from 'react-native'
 
-import { VendorContext } from '../../contex'
+import { MenuButton, Avatar, FavouriteService, Text } from '../../components'
+import Card from '../../components/Card'
+
 
 const HomeScreen = () => {
-  const vendorContext = useContext(VendorContext)
-  
-  const { state, getElectricityDetails, loading, getCabletvDetails } = vendorContext
-  
-  useEffect(() => {
-    const formData = {
-      "smartCardNumber": "7030660041",
-      "cable": "DSTV"
-    }
-    getCabletvDetails(formData)
-  }, [])
-  console.log('state', state, loading)
   return (
-    <View>
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1, marginHorizontal: 20 }}>
+      <MenuButton />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flex: 0.1 }}>
+        <View style={{ marginVertical: 20}}>
+          <Text blue h3>Hi, Christopher Sani</Text>
+          <Text green caption>Welcome back</Text>
+        </View>
+        <Avatar />
+      </View>
+      <Card />
+      <FavouriteService />
+    </SafeAreaView>
   )
 }
 

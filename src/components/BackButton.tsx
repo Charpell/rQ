@@ -6,9 +6,9 @@ import { Ionicons } from '@expo/vector-icons'
 
 const BackButton = ({ navigation }) => {
   return (
-    <View style={{ flex: 0.1 }}>
+    <View>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Ionicons name="md-arrow-back" size={44} color={'white'} />
+        <Ionicons name="md-arrow-back" size={44} color={'#173CBC'} />
       </TouchableOpacity>
     </View>
   )

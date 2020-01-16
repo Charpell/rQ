@@ -46,9 +46,27 @@ export default createBottomTabNavigator({
       }
     } 
   },
+  Wallet: { 
+    screen: Wallet,
+    navigationOptions({screenProps}) {
+      const { theme } = screenProps
+      return {
+        tabBarLabel: "",
+        tabBarIcon: ({focused}) => {
+          return (
+            <MaterialIcons 
+              name="local-movies" 
+              color={focused ? 'red' : 'yellow'} 
+              size={28} 
+            />
+          ) 
+        }
+      }
+    } 
+  },
 },
 {
-  initialRouteName: 'Home',
+  initialRouteName: 'Wallet',
   animationEnabled: true,
   swipeEnabled: false,
   tabBarOptions: {
