@@ -16,10 +16,11 @@ import ToggleIcon from './ToggleIcon'
 import Avatar from './Avatar'
 import IconComp from './IconComp'
 import FavouriteService from './FavouriteService'
+import CirIcon from './CirIcon'
 
 export { 
   Block, Card, Button, Text, Input, Badge,
   MenuButton, NotificationButton, Notifications,
   ForwardButton, BackButton, LoadingOverlay, LottieAnimation,
-  ToggleIcon, Avatar, IconComp, FavouriteService
+  ToggleIcon, Avatar, IconComp, FavouriteService, CirIcon
 }

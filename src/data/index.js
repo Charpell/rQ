@@ -5,19 +5,19 @@ export const backgrounds = [
     title: "Freedom of Banking",
     description:
       "Pay lease, get paid and settle your funds as like everybody does. We'll give you an Account following opening your record.",
-    img: images.welcome
+    img: images.first
   },
   {
-    title: "Encrypted, forever.",
+    title: "Pay Bills Conveniently",
     description:
       "Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis.",
-    img: images.encrypted
+    img: images.second
   },
   {
-    title: "Privacy, forever.",
+    title: "Transfer / Withdraw Money",
     description:
       "Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis.",
-    img: images.privacy
+    img: images.third
   }
 ]
 
@@ -107,7 +107,7 @@ export const sideMenuBar = [
 export const service = [
   {
     id: 1,
-    icon: 'home',
+    icon: images.mobileAndroid,
     name: 'Mobile Prepaid'
   },
   {
@@ -132,11 +132,6 @@ export const service = [
   },
   {
     id: 6,
-    icon: 'stack-exchange',
-    name: 'Electricity'
-  },
-  {
-    id: 7,
     icon: 'stack-exchange',
     name: 'Electricity'
   }

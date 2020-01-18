@@ -9,8 +9,9 @@ import HomeNavigator from './HomeNavigator'
 import LandingScreen from '../screens/LandingScreen'
 
 const Screens = createSwitchNavigator({
-  HomeNavigator,
   LandingScreen,
+
+  HomeNavigator,
 
   
 

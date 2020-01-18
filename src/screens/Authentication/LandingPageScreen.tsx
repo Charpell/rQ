@@ -4,7 +4,8 @@ import { View, StyleSheet, Image } from 'react-native'
 import { Button, Block, Input, Text, ForwardButton } from '../../components';
 import { getStorageData } from '../../utils/AsyncStorage'
 
-
+import { images, theme } from "../../constants";
+const { SIZES, COLORS } = theme;
 // import { Logo } from '../../assets'
 interface Props {
   navigation: any
@@ -25,19 +26,19 @@ export default function LandingPageScreen ({ navigation }) {
           <View style={{ marginBottom: 20 }}>
             <Image 
               style={{ width: 100, height: 100 }}
-              source={require('../../assets/images/logoTransparent.png')}
+              source={images.icon}
             />
           </View>
           
 
           <View style={{ marginTop: 20 }}>
-            <Text white bold h3 marginBottom>Welcome</Text>
-            <Text white font marginTop>Freedom of Banking at your finger tip.</Text>
+            <Text primary bold h3 marginBottom>Welcome</Text>
+            <Text primary font marginTop>Freedom of Banking at your finger tip.</Text>
           </View>
           
 
           <View style={{ height: 200, alignItems: 'center', justifyContent: 'flex-end'}}>
-          <Button gradient onPress={() => navigation.navigate('SignUpScreen')} style={{ marginVertical: 20, width: 300, borderRadius: 10, height: 50 }}>
+          <Button  onPress={() => navigation.navigate('SignUpScreen')} style={{ marginVertical: 20, width: 300, borderRadius: 10, height: 50 }}>
             
              
                 <Text bold white center>Create an Account</Text>
@@ -47,8 +48,8 @@ export default function LandingPageScreen ({ navigation }) {
           </Button>
 
           <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
-            <Text gray2  style={{ marginTop: 20 }}>
-              Already have a account? <Text white bold>Sign in</Text>
+            <Text secondary  style={{ marginTop: 20 }}>
+              Already have a account? <Text primary bold>Sign in</Text>
             </Text>
           </Button>
           </View>
@@ -62,7 +63,7 @@ export default function LandingPageScreen ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1A5F8B',
+    backgroundColor: COLORS.background,
     paddingHorizontal: 20
   },
   mainContainer: {

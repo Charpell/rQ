@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form'
 import { Button, Block, Input, Text, ForwardButton, BackButton } from '../../components';
 
 import { AuthContext } from '../../contex/auth/authState'
+import { images, theme } from "../../constants";
+const { SIZES, COLORS } = theme;
 
 
 const SignUpScreen = ({ navigation }) => {
@@ -39,12 +41,12 @@ const SignUpScreen = ({ navigation }) => {
   
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#173CBC', paddingHorizontal: 20, paddingTop: 50 }}>
+    <View style={{ flex: 1, backgroundColor: COLORS.accent, paddingHorizontal: 20, paddingTop: 50 }}>
       <BackButton navigation={navigation} />
 
       <View style={{ marginTop: 20, flex: 0.1 }}>
-        <Text white bold h3 marginBottom>Enter Mobile Number</Text>
-        <Text white font marginTop>Please enter your Mobile Phone Number.</Text>
+        <Text primary bold h3 marginBottom>Enter Mobile Number</Text>
+        <Text primary font marginTop>Please enter your Mobile Phone Number.</Text>
       </View>
 
       <View style={{
@@ -85,15 +87,15 @@ const SignUpScreen = ({ navigation }) => {
               size={"large"}
             />
           ) : (
-            <Button gradient onPress={handleSubmit(onSubmit)} style={{ marginBottom: 10, width: 300, borderRadius: 10, height: 50 }}>
+            <Button  onPress={handleSubmit(onSubmit)} style={{ marginBottom: 10, width: 300, borderRadius: 10, height: 50 }}>
                 <Text bold white center>Send Code</Text>
                 <ForwardButton />
             </Button>
           )}
 
           <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
-            <Text gray2  style={{ marginTop: 20 }}>
-              Already have a account? <Text white bold>Sign in</Text>
+            <Text secondary style={{ marginTop: 20 }}>
+              Already have a account? <Text primary bold>Sign in</Text>
             </Text>
           </Button>
           </View>

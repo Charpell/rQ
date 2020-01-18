@@ -3,12 +3,12 @@ import { Block, Text } from './src/components'
 
 import AuthState from './src/contex/auth/authState'
 
-import Root from './Root'
+import AppRoot from './src/AppRoot'
 
 export default function App() {
   return (
     <AuthState>
-      <Root />
+      <AppRoot />
     </AuthState>
   );
 }

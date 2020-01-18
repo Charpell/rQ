@@ -14,9 +14,10 @@ const activeColor = COLORS.primary;
 const inactiveColor = COLORS.secondary;
 
 const WalletNavigator = createStackNavigator({
-  AddWalletScreen,
 
   WalletScreen,
+  AddWalletScreen,
+
 }, {
   defaultNavigationOptions: {
     headerStyle: {

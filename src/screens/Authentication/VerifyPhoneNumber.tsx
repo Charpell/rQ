@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form'
 import { Button, Block, Input, Text, ForwardButton, BackButton } from '../../components';
 
 import { AuthContext } from '../../contex/auth/authState'
+import { images, theme } from "../../constants";
+const { SIZES, COLORS } = theme;
 
 
 export default function VerifyPhoneNumber ({ navigation }) {
@@ -30,13 +32,13 @@ export default function VerifyPhoneNumber ({ navigation }) {
 
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#173CBC', paddingHorizontal: 20, paddingTop: 50 }}>
+    <View style={{ flex: 1, backgroundColor: COLORS.background, paddingHorizontal: 20, paddingTop: 50 }}>
       <BackButton navigation={navigation} />
 
       <View style={{ marginTop: 20, flex: 0.2 }}>
-        <Text white bold h3 marginBottom>Verify Phone Number</Text>
-        <Text white font marginTop>Verify your account by entering the 4 digits code</Text>
-        <Text white font>We sent to {phone.length === 10 ? `+234${phone}` : phone}</Text>
+        <Text primary bold h3 marginBottom>Verify Phone Number</Text>
+        <Text primary font marginTop>Verify your account by entering the 4 digits code</Text>
+        <Text primary font>We sent to {phone.length === 10 ? `+234${phone}` : phone}</Text>
       </View>
 
       <View style={{ flex: 0.15, flexDirection: 'row', justifyContent: 'space-evenly' }}>
@@ -93,15 +95,15 @@ export default function VerifyPhoneNumber ({ navigation }) {
 
       <View style={{ flex: 0, alignItems: 'center' }}>
         <Button withoutFeedback onPress={() => navigation.navigate('Forgot')}>
-            <Text gray2  >
-              Didn't receive? <Text primary bold>Resend code in 00:30</Text>
+            <Text primary  >
+              Didn't receive? <Text secondary bold>Resend code in 00:30</Text>
             </Text>
           </Button>
       </View>
       
 
       <View style={{alignItems: 'center', justifyContent: 'flex-end', flex: 0.4 }}>
-        <Button gradient onPress={handleSubmit(onSubmit)} style={{ marginBottom: 10, width: 300, borderRadius: 10, height: 50 }}>
+        <Button  onPress={handleSubmit(onSubmit)} style={{ marginBottom: 10, width: 300, borderRadius: 10, height: 50 }}>
             <Text bold white center>Verify</Text>
             <ForwardButton />
         </Button>

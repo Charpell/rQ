@@ -7,10 +7,10 @@ import { service } from '../data'
 const FavouriteService = () => {
   return (
     <View style={{ flex: 0.4 }}>
-      <Text style={{ marginTop: 20, paddingHorizontal: 20 }}>Favourite service</Text>
+      <Text sfmedium subtitle primary style={{ marginTop: 20, paddingHorizontal: 20 }}>{'Favourite service'.toUpperCase()}</Text>
       <View style={styles.sevice}>
         {service.map((data, index) => (
-          <View style={{ width: '30%',  margin: 5, padding: 10, backgroundColor: '#ffffff', height: 100, justifyContent: 'space-around', marginTop: 20, borderRadius: 14 }}>
+          <View key={index} style={{ width: '30%',  margin: 5, padding: 10, backgroundColor: '#ffffff', height: 100, justifyContent: 'space-around', marginTop: 20, borderRadius: 14 }}>
             <View style={{ alignSelf: 'center'}}>
             <Badge margin={[0, 0, 15]} size={50} color="rgba(41,216,143,0.20)">
               <IconComp color={'red'} />

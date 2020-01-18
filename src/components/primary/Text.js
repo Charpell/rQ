@@ -193,6 +193,15 @@ class Typography extends Component {
       theme,
       style,
       children,
+      sfregular,
+      sfdisplayBlack,
+      sfultra,
+      sfthin,
+      sfsemibold,
+      sfmedium,
+      sflight,
+      sfheavy,
+      sfbold,
       ...props
     } = this.props;
 
@@ -245,6 +254,15 @@ class Typography extends Component {
       success && { color: COLORS.success },
       info && { color: COLORS.info },
       color && { color },
+      sfregular && { fontFamily: 'regular' },
+      sfdisplayBlack && { fontFamily: 'displayBlack' },
+      sfultra && { fontFamily: 'ultra' },
+      sfthin && { fontFamily: 'thin' },
+      sfsemibold && { fontFamily: 'semibold' },
+      sfmedium && { fontFamily: 'medium' },
+      sflight && { fontFamily: 'light' },
+      sfheavy && { fontFamily: 'heavy' },
+      sfbold && { fontFamily: 'bold' },
       style // rewrite predefined styles
     ]);
 

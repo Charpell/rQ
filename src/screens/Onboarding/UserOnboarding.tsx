@@ -97,7 +97,7 @@ export default class Welcome extends Component {
 
     return (
       <React.Fragment>
-        <Text animated h2 bold white theme={theme}>
+        <Text animated h2 bold white theme={theme} style={{ color: COLORS.primary }}>
           {background && background.title}
         </Text>
         <Text
@@ -107,6 +107,7 @@ export default class Welcome extends Component {
           subtitle
           white
           margin={[SIZES.small, 0]}
+          style={{ color: COLORS.primary }}
         >
           {background && background.description}
         </Text>
@@ -118,7 +119,7 @@ export default class Welcome extends Component {
     const { navigation } = this.props;
 
     return (
-      <Block safe style={{ backgroundColor: '#173CBC' }}>
+      <Block safe style={{ backgroundColor: COLORS.background }}>
         <Block center middle>
           {this.renderImages()}
         </Block>
@@ -126,6 +127,7 @@ export default class Welcome extends Component {
           {this.renderTexts()}
           {this.renderDots()}
           <Button
+            style={{ backgroundColor: COLORS.secondary }}
             primary
             theme={theme}
             onPress={() => navigation.navigate("LandingPageScreen")}
@@ -147,5 +149,5 @@ export default class Welcome extends Component {
 }
 
 const styles = StyleSheet.create({
-  dot: { width: SIZES.base, height: SIZES.base }
+  dot: { width: SIZES.base, height: SIZES.base, backgroundColor: COLORS.secondary }
 });

@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import { Entypo } from '@expo/vector-icons'
+
+import { images } from '../constants'
+
 
 const MenuButton = ({ navigation }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={() => navigation.openDrawer()}>
-      <Entypo name="menu" size="30" />
+      <Image source={images.menu} style={{ width: 22, height: 22 }} />
     </TouchableOpacity>
   )
 }

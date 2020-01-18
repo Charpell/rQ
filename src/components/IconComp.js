@@ -1,21 +1,19 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
-
-import { Entypo } from '@expo/vector-icons'
+import { View, TouchableOpacity, Image } from 'react-native'
 
 
-const IconComp = ({ name , size, color }) => {
+
+const IconComp = ({ image, width, height }) => {
   return (
       <TouchableOpacity onPress={() => console}>
-        <Entypo name={name} size={size} color={color} />
+        <Image source={image} style={{ width, height }} />
       </TouchableOpacity>
   )
 }
 
 IconComp.defaultProps = {
-  name: 'menu',
-  size: 22,
-  color: 'white'
+  width: 22,
+  height: 22
 }
 
 export default IconComp
