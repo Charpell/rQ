@@ -2,7 +2,7 @@ import React from 'react'
 import { Image } from 'react-native'
 
 import { createStackNavigator } from 'react-navigation-stack'
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, Feather } from '@expo/vector-icons'
 
 import { images, theme } from '../../constants'
 const { SIZES, COLORS } = theme
@@ -11,7 +11,7 @@ import HomeScreen from '../../screens/Home/HomeScreen'
 import TransferScreen from '../../screens/Home/TransferScreen'
 
 const activeColor = COLORS.primary;
-const inactiveColor = COLORS.secondary;
+const inactiveColor = COLORS.inactiveTab;
 
 const HomeNavigator = createStackNavigator({
   HomeScreen,
@@ -31,6 +31,7 @@ const HomeNavigator = createStackNavigator({
       marginLeft: SIZES.base * 2,
       paddingRight: SIZES.base,
     },
+    title: '',
     headerRightContainerStyle: {
       alignItems: 'center',
       paddingRight: SIZES.base,
@@ -40,7 +41,7 @@ const HomeNavigator = createStackNavigator({
 
 HomeNavigator.navigationOptions = {
   tabBarIcon: ({ focused }) => (
-    <MaterialIcons 
+    <Feather
       name="home"
       size={26}
       color={focused ? activeColor : inactiveColor}
