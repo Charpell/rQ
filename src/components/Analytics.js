@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Animated, StyleSheet, View, Dimensions, TouchableOpacity } from "react-native";
+import { Animated, StyleSheet, View, TouchableOpacity } from "react-native";
 import {
   PanGestureHandler,
   NativeViewGestureHandler,
@@ -16,9 +16,7 @@ import { SIZES, COLORS } from "../utils/theme";
 import { categories } from "../data/index";
 
 const HEADER_HEIGHT = 70;
-const windowHeight = Dimensions.get("window").height;
-const windowWidth = Dimensions.get("window").width;
-const SNAP_POINTS_FROM_TOP = [20, windowHeight * 0.9];
+const SNAP_POINTS_FROM_TOP = [20, SIZES.height * 0.9];
 const USE_NATIVE_DRIVER = true;
 export default class Analytics extends Component {
   masterdrawer = React.createRef();
@@ -111,7 +109,7 @@ export default class Analytics extends Component {
         <View
           style={{
             ...StyleSheet.absoluteFillObject,
-            width: windowWidth,
+            width: SIZES.width,
           }}
           pointerEvents="box-none"
         >
@@ -208,7 +206,7 @@ export default class Analytics extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: windowWidth,
+    width: SIZES.width,
     backgroundColor: "white"
   },
   header: {

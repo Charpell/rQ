@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Image, Dimensions, FlatList } from "react-native";
+import { StyleSheet, Image, FlatList } from "react-native";
 import { SIZES, COLORS } from "../../utils/theme";
 import { images } from "../../utils";
 import { WalletTransactions } from "../../data";
@@ -9,7 +9,6 @@ import Button from "../../components/primary/Button";
 import Card from "../../components/primary/Card";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const { width } = Dimensions.get("window");
 const TransactionComponent = props => {
   return (
     <Block row space="between" middle>
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   FabContainer: {
     position: "absolute",
     top: SIZES.base * 15,
-    width: width,
+    width: SIZES.width,
     flex: 0,
   },
   Fab: {
