@@ -154,3 +154,37 @@ export const moneyCards = [
     name: 'Via USSD Code'
   },
 ]
+
+export const WalletTransactions = [
+  {
+    id: 1,
+    type: 'Bank Transfer',
+    date: '02 May 3:00PM',
+    amount: 'N12, 000.00',
+  },
+  {
+    id: 2,
+    type: 'Top Up',
+    date: '02 May 3:00PM',
+    amount: 'N14, 000.00',
+  },
+  {
+    id: 3,
+    type: 'Bank Transfer',
+    date: '02 May 3:00PM',
+    amount: 'N3, 000.00',
+  },
+  {
+    id: 4,
+    type: 'Bank Transfer',
+    date: '02 May 3:00PM',
+    amount: 'N2, 000.00',
+  },
+  {
+    id: 5,
+    type: 'Bank Transfer',
+    date: '02 May 3:00PM',
+    amount: 'N12, 000.00',
+  },
+
+]

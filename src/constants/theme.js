@@ -11,7 +11,9 @@ const newTheme = {
     white: "#FFFFFF",
     gray: "#9DA3B4",
     gray2: "#C5CCD6",
-    background: '#ffffff'
+    background: '#ffffff',
+    altBackground: "#F2F5F8",
+    inactiveTab: '#D1DCFF',
   },
   SIZES: {
     // global sizes

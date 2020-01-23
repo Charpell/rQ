@@ -7,6 +7,8 @@ export const COLORS = {
   secondary: "#47E7C1",
   tertiary: "#334355",
   background: "#F2F5F8",
+  inactiveTab: '#D1DCFF',
+
 
   // non-colors
   black: "#000020",
