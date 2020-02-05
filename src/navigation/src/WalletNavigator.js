@@ -18,51 +18,14 @@ const WalletNavigator = createStackNavigator(
     WalletScreen: {
       screen: WalletScreen,
       navigationOptions: {
-        title: "My Wallet",
-        headerStyle: {
-          height: SIZES.base * 10,
-          elevation: 0, // for android
-          borderBottomColor: "transparent",
-          backgroundColor: COLORS.altBackground // or 'white
-        }
+        title: "My Wallet"
       }
     },
     AddMoneyScreen
   },
   {
-    defaultNavigationOptions: {
-      headerStyle: {
-        height: SIZES.base * 4,
-        backgroundColor: COLORS.background, // or 'white
-        borderBottomColor: "transparent",
-        elevation: 0 // for android
-      },
-      headerBackImage: (
-        <Image source={require("../../assets/icons/back.png")} />
-      ),
-      headerBackTitle: null,
-      headerLeftContainerStyle: {
-        alignItems: "center",
-        marginLeft: SIZES.base * 2,
-        paddingRight: SIZES.base
-      },
-      // title: '',
-      headerRightContainerStyle: {
-        alignItems: "center",
-        paddingRight: SIZES.base
-      }
-    }
+    initialRouteName: "WalletScreen"
   }
 );
-
-WalletNavigator.navigationOptions = {
-  tabBarIcon: ({ focused }) => (
-      <MaterialCommunityIcons
-        name="wallet"
-        size={26}
-        color={focused ? activeColor : inactiveColor}
-      />
-    )
-};
 
 export default WalletNavigator;

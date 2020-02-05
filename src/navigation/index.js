@@ -5,18 +5,14 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 
 import UserOnboarding from '../screens/Onboarding/UserOnboarding'
 import AuthNavigator from './AuthNavigator'
-import HomeNavigator from './HomeNavigator'
+import HomeNavigator from './HomeDrawer'
 import LandingScreen from '../screens/LandingScreen'
 
-const Screens = createSwitchNavigator({
+const RootNavigator = createSwitchNavigator({
   HomeNavigator,
   LandingScreen,
-
-
-  
-
-  AuthNavigator,
   UserOnboarding,
+  AuthNavigator,
 })
 
-export default createAppContainer(Screens)
+export default createAppContainer(RootNavigator)

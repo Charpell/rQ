@@ -1,17 +1,16 @@
-import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
-
-import { Ionicons } from '@expo/vector-icons'
-
+import React from "react";
+import { View, TouchableOpacity, Image } from "react-native";
+import { images } from "../constants";
+import { withNavigation } from "react-navigation";
 
 const BackButton = ({ navigation }) => {
   return (
     <View>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Ionicons name="md-arrow-back" size={44} color={'#173CBC'} />
+        <Image source={images.back} style={{ height: 19, width: 20 }} />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default BackButton
+export default withNavigation(BackButton);
