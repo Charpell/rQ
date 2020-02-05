@@ -62,7 +62,7 @@ export default class WalletScreen extends Component {
         <Block flex={1} paddingBottom={SIZES.base * 5}>
           <FlatList
             data={WalletTransactions}
-            keyExtractor={item => item.id}
+            keyExtractor={item => `trsanaction-item-${item.id}`}
             renderItem={({ item }) => (
               <TransactionComponent
                 type={item.type}
@@ -76,7 +76,9 @@ export default class WalletScreen extends Component {
           <Button
             white
             height={72}
-            style={styles.Fab}
+            // style={styles.Fab}
+            shadow
+            radius={SIZES.radius}
             paddingHorizontal
             marginRight
             onPress={() => this.props.navigation.navigate("AddMoneyScreen")}
