@@ -36,13 +36,13 @@ const { SIZES, COLORS } = theme
  * - predefined colors: primary, secondary, tertiary, black, white, gray, error, warning, success, info
  *
  * <Button primary><Text>backgroundColor: COLORS.primary</Text></Button>
- * <Button transparent><Text>backgroundColor: "transparent"</Text></Button>
- *
- * - custom color using hex color
- * <Button color="#DDDDDD"><Text>backgroundColor: #DDDDDD</Text></Button>
- *
- * Set activeOpacity using opacity prop
- * default activeOpacity=0.8
+ * <Button transparent><Text>backgroundColor: "transparent"<shadow && {
+        elevation,
+        shadowColor: COLORS.black,
+        shadowOffset: { width: 0, height: elevation - 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: elevation
+      },
  * <Button opacity={0.5}><Text>opacity={0.5}</Text></Button>
  *
  * Outlined and add borderColor equal with backgroundColor
@@ -139,6 +139,10 @@ class Button extends Component {
       outlined,
       flex,
       height,
+      width,
+      radius,
+      shadow,
+      elevation,
       // colors
       color,
       transparent,
@@ -192,7 +196,16 @@ class Button extends Component {
       info && { backgroundColor: COLORS.info },
       color && { backgroundColor: color }, // custom backgroundColor
       flex && { flex }, // flex width
-      height && { height }, // custom height
+      height && { height }, 
+      width && { width }, 
+      shadow && {
+        elevation,
+        shadowColor: COLORS.black,
+        shadowOffset: { width: 0, height: elevation - 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: elevation
+      },
+      radius && { borderRadius: radius },
       marginSpacing,
       paddingSpacing,
       style
@@ -258,6 +271,7 @@ Button.defaultProps = {
   padding: null,
   flex: 0,
   height: false,
+  width: false,
   transparent: false,
   primary: false,
   secondary: false,
@@ -269,6 +283,9 @@ Button.defaultProps = {
   warning: false,
   success: false,
   info: false,
+  radius: null,
+  shadow: null,
+  elevation: 3,
   theme: {},
   style: {},
   startColor: COLORS.primary,
