@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
-const CirIcon = ({ size, color }) => {
+const CirIcon = ({ size, color, children}) => {
   return (
-    <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }}>
-      
+    <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color, alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+      {children}
     </View>
   )
 }

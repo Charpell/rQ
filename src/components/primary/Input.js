@@ -147,10 +147,11 @@ class Input extends Component {
       {
         borderWidth: 1,
         height: SIZES.base * 5.5,
-        borderRadius: SIZES.radius,
+        borderRadius: SIZES.radius * 3,
         borderColor: rgba(color || COLORS.primary, 0.4),
         // paddingHorizontal: SIZES.base,
-        fontSize: SIZES.font
+        fontSize: SIZES.font,
+        backgroundColor: COLORS.white
       },
       style
     ]);

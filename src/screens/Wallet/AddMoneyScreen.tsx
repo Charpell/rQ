@@ -1,57 +1,85 @@
-import React from "react";
-import { View, FlatList } from "react-native";
-
-import { Text, BackButton, IconComp } from "../../components";
-import theme from "../../utils/theme";
+import React, { useState } from "react";
+import { Platform, View, StyleSheet } from "react-native";
+import { Text, Block, Button, ImageIcon, TabedView } from "../../components";
 import { moneyCards } from "../../data";
-
-const AddMoneyScreen = () => {
+import { COLORS, SIZES } from "../../utils/theme";
+import { Ionicons } from "@expo/vector-icons";
+const AddMoneyScreen = ({ navigation }) => {
+  const views = [
+    {
+      id: 0,
+      label: "View Card/ATM",
+      activeIcon: "atmCard",
+      inactiveIcon: "atmCardAlt",
+      viewContent: () => (
+        <Block>
+          <Text>Some Content 1</Text>
+        </Block>
+      )
+    },
+    {
+      id: 1,
+      label: "Via Bank Transfer",
+      activeIcon: "university",
+      inactiveIcon: "universityAlt",
+      viewContent: () => (
+        <Block>
+          <Text>Some Content 2</Text>
+        </Block>
+      )
+    },
+    {
+      id: 2,
+      label: "Via USSD Code",
+      activeIcon: ["asterisk", "asterisk", "asterisk"],
+      inactiveIcon: ["asteriskAlt", "asteriskAlt", "asteriskAlt"],
+      viewContent: () => (
+        <Block>
+          <Text>Some Content 3</Text>
+        </Block>
+      )
+    }
+  ];
   return (
-    <View
-      style={{ flex: 1, backgroundColor: "#F2F5F8", paddingHorizontal: 20 }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "50%",
-          paddingTop: 20
-        }}
-      >
-        <BackButton />
-        <Text title primary>
-          Add Money
-        </Text>
-      </View>
-      <Text caption style={{ color: theme.COLORS.primary }}>
+    <Block color={COLORS.background}>
+      <Text caption primary paddingHorizontal marginVertical>
         Top up your Rubeepay from multiple sources
       </Text>
-      <View style={{ flexDirection: "row" }}>
-        <FlatList
-          data={moneyCards}
-          renderItem={({ item }) => {
-            <View
-              style={{
-                width: "30%",
-                margin: 5,
-                backgroundColor: theme.COLORS.primary,
-                height: 100,
-                borderRadius: 10,
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <IconComp />
-              <Text white caption style={{ marginTop: 10 }}>
-                {item.name}
-              </Text>
-            </View>;
-          }}
+      <Block flex={1}>
+        <TabedView views={views} />
+      </Block>
+
+      <Button
+        secondary
+        shadow
+        radius={SIZES.base}
+        paddingHorizontal={SIZES.base * 2}
+        style={{
+          position: "absolute",
+          bottom: SIZES.height * 0.05,
+          right: 32
+        }}
+        onPress={() => navigation.navigate("AddCardScreen")}
+      >
+        <Ionicons
+          name={Platform.OS === "ios" ? "ios-add" : "md-add"}
+          size={16}
+          color="white"
         />
-      </View>
-    </View>
+      </Button>
+    </Block>
   );
 };
+
+const styles = StyleSheet.create({
+  viewPager: {
+    flex: 1
+  },
+  view: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "gray"
+  }
+});
 
 export default AddMoneyScreen;
