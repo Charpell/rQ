@@ -9,7 +9,6 @@ export const COLORS = {
   background: "#F2F5F8",
   inactiveTab: '#D1DCFF',
 
-
   // non-colors
   black: "#000020",
   white: "#FFFFFF",
@@ -20,7 +19,8 @@ export const COLORS = {
   warning: "#FFE358",
   success: "#4CD964",
   info: "#4DA1FF",
-  gray2: "#7892E6"
+  gray2: "#7892E6",
+  muted: "#C1C6CB"
 };
 
 export const SIZES = {
@@ -39,6 +39,7 @@ export const SIZES = {
   body: 14,
   caption: 12,
   small: 10,
+  tiny: 9,
 
   // app dimensions
   width,
@@ -54,7 +55,8 @@ export const FONTS = {
   subtitle: { fontSize: SIZES.subtitle },
   body: { fontSize: SIZES.body },
   caption: { fontSize: SIZES.caption, letterSpacing: 0.4 },
-  small: { fontSize: SIZES.small, letterSpacing: 1.5 }
+  small: { fontSize: SIZES.small, letterSpacing: 1.5 },
+  tiny: { fontSize: SIZES.tiny, letterSpacing: 0 }
 };
 
 export const WEIGHTS = {
