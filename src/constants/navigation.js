@@ -1,7 +1,10 @@
-import images from './images'
+import * as React from "react";
+import images from "./images";
+import { SIZES, COLORS } from "../utils/theme";
+import ImageIcon from '../components/primary/ImageIcon';
 
 // BottomTab resources
-const TAB_RES = {
+export const TAB_RES = {
   home: {
     active: images.homeAlt,
     inactive: images.home,
@@ -34,4 +37,24 @@ const TAB_RES = {
   }
 };
 
-export default {TAB_RES};
+export const headerStyles = {
+  headerStyle: {
+    height: SIZES.base * 8,
+    backgroundColor: COLORS.background || "white", // or 'white
+    borderBottomColor: "transparent",
+    elevation: 0 // for android
+  },
+  headerTintColor: COLORS.primary,
+  headerBackImage: () => ( <ImageIcon name="back" />),
+  headerLeftContainerStyle: {
+    alignItems: "center",
+    marginLeft: SIZES.base,
+    paddingRight: SIZES.base
+  },
+  headerRightContainerStyle: {
+    alignItems: "center",
+    paddingRight: SIZES.base
+  }
+};
+
+export default { TAB_RES, headerStyles };

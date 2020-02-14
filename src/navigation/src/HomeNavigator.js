@@ -1,29 +1,46 @@
 import React from "react";
-import { Image } from "react-native";
-
 import { createStackNavigator } from "react-navigation-stack";
-import { MaterialIcons, Feather } from "@expo/vector-icons";
 
-import { images, theme } from "../../constants";
-const { SIZES, COLORS } = theme;
+import { theme } from "../../constants";
+const { COLORS } = theme;
 
 import HomeScreen from "../../screens/Home/HomeScreen";
-import TransferScreen from "../../screens/Home/TransferScreen";
+import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
+import TransferScreen from "../../screens/Wallet/TransferScreen";
+import { headerStyles } from "../../constants/navigation";
+import AnalyticsScreen from "../../screens/Home/AnalyticsScreen";
 
-const activeColor = COLORS.primary;
-const inactiveColor = COLORS.inactiveTab;
-
-const HomeNavigator = createStackNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
-    navigationOptions: ({ navigation }) => ({
-      headerMode: "none",
-      header: null
-    })
+const HomeScreens = createStackNavigator(
+  {
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
+    TransferScreen: {
+      screen: TransferScreen
+    }
   },
-  TransferScreen: {
-    screen: TransferScreen
+  {
+    defaultNavigationOptions: {
+      ...headerStyles
+    }
   }
-});
+);
+const HomeNavigator = createStackNavigator(
+  {
+    HomeScreen: {
+      screen: HomeScreens
+    },
+    AnalyticsScreen: {
+      screen: AnalyticsScreen
+    }
+  },
+  {
+    mode: "modal",
+    headerMode: "none"
+  }
+);
 
 export default HomeNavigator;

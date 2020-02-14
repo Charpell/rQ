@@ -5,14 +5,17 @@ import Home from "./HomeNavigator";
 import Transactions from "./TransactionNavigator";
 import Wallet from "./WalletNavigator";
 import Support from "./SupportNavigator";
+import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
 import { SIZES, COLORS } from "../../utils/theme";
 import { Text, BackButton } from "../../components";
 import { images, navigation } from "../../constants";
-import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
 
 const TabBarComponent = props => <BottomTabBar {...props} />;
-const { TAB_RES } = navigation;
+
+const { TAB_RES, headerStyles } = navigation;
+
 const tabBarElevation = 3;
+
 const Label = props => (
   <Text primary size={SIZES.base} center>
     {props.focused ? props.name : ""}
@@ -82,7 +85,7 @@ const BottomTab = createBottomTabNavigator(
         };
       }
     },
-    AddMoney: {
+    AddMoneyScreen: {
       screen: AddMoneyScreen,
       navigationOptions({ screenProps, navigation }) {
         const { theme } = screenProps;
@@ -90,6 +93,7 @@ const BottomTab = createBottomTabNavigator(
         return {
           title: "Add Money",
           tabBarVisible: false,
+          headerShown: true,
           tabBarLabel: ({ focused }) => {
             return <Label />;
           },
@@ -143,6 +147,9 @@ const BottomTab = createBottomTabNavigator(
     initialRouteName: "Home",
     animationEnabled: true,
     swipeEnabled: false,
+    navigationOptions: {
+      headerShown: true
+    },
     tabBarComponent: props => <TabBarComponent {...props} />,
     tabBarOptions: {
       style: {
@@ -151,36 +158,14 @@ const BottomTab = createBottomTabNavigator(
         borderTopWidth: 0,
         elevation: tabBarElevation,
         shadowColor: COLORS.black,
-        shadowOffset: { width: 0, height: tabBarElevation -1 },
+        shadowOffset: { width: 0, height: tabBarElevation - 1 },
         shadowOpacity: 1,
         shadowRadius: tabBarElevation * 2
       },
 
       labelPosition: "below-icon",
       activeTintColor: COLORS.primary,
-      inactiveTintColor: COLORS.inactiveTab, // this value is from the XD files
-      defaultNavigationOptions: {
-        headerStyle: {
-          height: SIZES.base * 4,
-          backgroundColor: "white", // or 'white
-          borderBottomColor: "transparent",
-          elevation: 0 // for android
-        },
-        headerBackImage: (
-          <BackButton />
-        ),
-        // headerBackTitle: null,
-        headerLeftContainerStyle: {
-          alignItems: "center",
-          marginLeft: SIZES.base * 2,
-          paddingRight: SIZES.base
-        },
-        title: "",
-        headerRightContainerStyle: {
-          alignItems: "center",
-          paddingRight: SIZES.base
-        }
-      }
+      inactiveTintColor: COLORS.inactiveTab // this value is from the XD files
     }
   }
 );

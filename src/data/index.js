@@ -1,4 +1,4 @@
-import { images } from '../constants'
+import { images } from "../constants";
 
 export const backgrounds = [
   {
@@ -19,172 +19,171 @@ export const backgrounds = [
       "Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis.",
     img: images.third
   }
-]
+];
 
 export const profile = {
-  username: 'react-ui-kit',
-  location: 'Europe',
-  email: 'contact@react-ui-kit.com',
+  username: "react-ui-kit",
+  location: "Europe",
+  email: "contact@react-ui-kit.com",
   avatar: images.plants,
   budget: 1000,
   monthly_cap: 5000,
   notifications: true,
-  newsletter: false,
+  newsletter: false
 };
 
 export const categories = [
   {
-    id: 'transfer',
-    name: 'Transfer',
+    id: "transfer",
+    name: "Transfer",
     count: 147,
     image: images.plants
   },
   {
-    id: 'deposit',
-    name: 'Deposit/Withdrawals',
+    id: "deposit",
+    name: "Deposit/Withdrawals",
     count: 16,
     image: images.plants
   },
   {
-    id: 'electricity',
-    name: 'Electricity',
+    id: "electricity",
+    name: "Electricity",
     count: 68,
     image: images.plants
   },
   {
-    id: 'airtime',
-    name: 'Airtime/Data',
+    id: "airtime",
+    name: "Airtime/Data",
     count: 17,
     image: images.plants
   },
   {
-    id: 'tv',
-    name: 'Tv',
+    id: "tv",
+    name: "Tv",
     count: 47,
     image: images.plants
   },
   {
-    id: 'bet',
-    name: 'Bet',
+    id: "bet",
+    name: "Bet",
     count: 47,
     image: images.plants
-  },
+  }
 ];
 
 export const sideMenuBar = [
   {
     id: 1,
-    icon: 'home',
-    name: 'Home'
+    icon: "home",
+    name: "Home"
   },
   {
     id: 2,
-    icon: 'user-o',
-    name: 'Profile'
+    icon: "user-o",
+    name: "Profile"
   },
   {
     id: 3,
-    icon: 'cog',
-    name: 'Account Settings'
+    icon: "cog",
+    name: "Account Settings"
   },
   {
     id: 4,
-    icon: 'comment-o',
-    name: 'Referral'
+    icon: "comment-o",
+    name: "Referral"
   },
   {
     id: 5,
-    icon: 'question',
-    name: '  FAQ'
+    icon: "question",
+    name: "  FAQ"
   },
   {
     id: 6,
-    icon: 'stack-exchange',
-    name: 'Terms and Privacy'
+    icon: "stack-exchange",
+    name: "Terms and Privacy"
   }
-]
+];
 
 export const service = [
   {
     id: 1,
     icon: images.mobileAndroid,
-    name: 'Mobile Prepaid'
+    name: "Mobile Prepaid"
   },
   {
     id: 2,
-    icon: 'user-o',
-    name: 'Pay Bill'
+    icon: "user-o",
+    name: "Pay Bill"
   },
   {
     id: 3,
-    icon: 'cog',
-    name: 'Cable TV'
+    icon: "cog",
+    name: "Cable TV"
   },
   {
     id: 4,
-    icon: 'comment-o',
-    name: 'Saving Plan'
+    icon: "comment-o",
+    name: "Saving Plan"
   },
   {
     id: 5,
-    icon: 'question',
-    name: 'Grow Wealth'
+    icon: "question",
+    name: "Grow Wealth"
   },
   {
     id: 6,
-    icon: 'stack-exchange',
-    name: 'Electricity'
+    icon: "stack-exchange",
+    name: "Electricity"
   }
-]
+];
 
 export const moneyCards = [
   {
     id: 1,
-    icon: '1',
-    name: 'Via Card Number'
+    icon: "1",
+    name: "Via Card Number"
   },
   {
     id: 2,
-    icon: '1',
-    name: 'Via Bank Transfer'
+    icon: "1",
+    name: "Via Bank Transfer"
   },
   {
     id: 3,
-    icon: '1',
-    name: 'Via USSD Code'
-  },
-]
+    icon: "1",
+    name: "Via USSD Code"
+  }
+];
 
 export const WalletTransactions = [
   {
     id: 1,
-    type: 'Bank Transfer',
-    date: '02 May 3:00PM',
-    amount: 'N12, 000.00',
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
   },
   {
     id: 2,
-    type: 'Top Up',
-    date: '02 May 3:00PM',
-    amount: 'N14, 000.00',
+    type: "topup",
+    date: "02 May 3:00PM",
+    amount: "N14, 000.00"
   },
   {
     id: 3,
-    type: 'Bank Transfer',
-    date: '02 May 3:00PM',
-    amount: 'N3, 000.00',
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N3, 000.00"
   },
   {
     id: 4,
-    type: 'Bank Transfer',
-    date: '02 May 3:00PM',
-    amount: 'N2, 000.00',
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N2, 000.00"
   },
   {
     id: 5,
-    type: 'Bank Transfer',
-    date: '02 May 3:00PM',
-    amount: 'N12, 000.00',
-  },
-
-]
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  }
+];

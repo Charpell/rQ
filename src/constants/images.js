@@ -25,6 +25,9 @@ const images = {
   wallet: require('../assets/iconone/wallet.png'),
   walletAlt: require('../assets/iconone/wallet-alt.png'),
   userSquare: require('../assets/iconone/user-square.png'),
+  add: require('../assets/iconone/0-plus.png'),
+  addCircle: require('../assets/iconone/0-plus-1.png'),
+  moneyInsert: require('../assets/iconone/money-insert.png'),
 }
 
 export const newArry = () => {
