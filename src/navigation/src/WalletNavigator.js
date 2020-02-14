@@ -1,17 +1,10 @@
 import React from "react";
-import { Image } from "react-native";
-
 import { createStackNavigator } from "react-navigation-stack";
-import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
-
-import { images, theme } from "../../constants";
-const { SIZES, COLORS } = theme;
-
 import WalletScreen from "../../screens/Wallet/WalletScreen";
 import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
-
-const activeColor = COLORS.primary;
-const inactiveColor = COLORS.secondary;
+import AddCardScreen from "../../screens/Wallet/AddCardScreen";
+import { headerStyles } from "../../constants/navigation";
+import { BackButton } from "../../components";
 
 const WalletNavigator = createStackNavigator(
   {
@@ -21,10 +14,36 @@ const WalletNavigator = createStackNavigator(
         title: "My Wallet"
       }
     },
-    AddMoneyScreen
+    AddMoneyScreen: {
+      screen: AddMoneyScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "Add Money",
+          headerLeft: <BackButton />,
+          tabBarVisible: false
+
+        };
+      }
+    },
+    AddCardScreen: {
+      screen: AddCardScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "Add Card",
+          tabBarVisible: false
+
+        };
+      }
+    }
   },
   {
-    initialRouteName: "WalletScreen"
+    initialRouteName: "WalletScreen",
+    defaultNavigationOptions: {
+      ...headerStyles
+    },
+    navigationOptions: {
+      headerShown: true
+    }
   }
 );
 
