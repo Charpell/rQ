@@ -20,6 +20,8 @@ import CirIcon from "./CirIcon";
 import Analytics from "./Analytics";
 import ImageIcon from "./primary/ImageIcon";
 import TabedView from "./TabedView";
+import Transaction from './Transaction';
+import DropDown from './DropDown';
 
 export {
   Block,
@@ -42,5 +44,7 @@ export {
   CirIcon,
   Analytics,
   ImageIcon,
-  TabedView
+  TabedView,
+  Transaction,
+  DropDown
 };

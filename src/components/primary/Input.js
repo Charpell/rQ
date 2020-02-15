@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { StyleSheet, TextInput } from "react-native";
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from "@expo/vector-icons";
 
 import expoTheme from "../../utils/theme";
 import { rgba, mergeTheme } from "../../utils";
-import { theme } from '../../constants'
+import { theme } from "../../constants";
 
-import Block from './Block';
-import Text from './Text';
-import Button from './Button'
+import Block from "./Block";
+import Text from "./Text";
+import Button from "./Button";
 
-const { SIZES, COLORS } = theme
+const { SIZES, COLORS } = theme;
 
 /**
  * https://facebook.github.io/react-native/docs/textinput
@@ -47,14 +47,18 @@ class Input extends Component {
   };
 
   renderLabel = () => {
-    const { label, error } = this.props
+    const { label, error } = this.props;
 
     return (
       <Block flex={false}>
-        {label ? <Text gray2={!error} error={error} subtitle>{label}</Text> : null}
+        {label ? (
+          <Text gray2={!error} error={error} subtitle>
+            {label}
+          </Text>
+        ) : null}
       </Block>
-    )
-  }
+    );
+  };
 
   renderToggle() {
     const { secure } = this.props;
@@ -68,9 +72,9 @@ class Input extends Component {
         onPress={() => this.setState({ toggleSecure: !toggleSecure })}
       >
         <Ionicons
-            color={COLORS.gray2}
-            size={SIZES.font * 1.35}
-            name={!toggleSecure ? "md-eye" : "md-eye-off"}
+          color={COLORS.gray2}
+          size={SIZES.font * 1.35}
+          name={!toggleSecure ? "md-eye" : "md-eye-off"}
         />
       </Button>
     );
@@ -132,6 +136,13 @@ class Input extends Component {
       placeholder,
       children,
       color,
+      placeholderColor,
+      width,
+      height,
+      padded,
+      shadow,
+      size,
+      center,
       type,
       style,
       theme,
@@ -139,19 +150,34 @@ class Input extends Component {
       secure,
       ...props
     } = this.props;
-    const { toggleSecure } = this.state
-    const isSecure = toggleSecure ? false : secure
+    const { toggleSecure } = this.state;
+    const isSecure = toggleSecure ? false : secure;
     const { SIZES, COLORS } = mergeTheme({ ...expoTheme }, theme);
 
     const textStyles = StyleSheet.flatten([
       {
         borderWidth: 1,
-        height: SIZES.base * 5.5,
+        height: height || SIZES.base * 5.5,
         borderRadius: SIZES.radius * 3,
-        borderColor: rgba(color || COLORS.primary, 0.4),
-        // paddingHorizontal: SIZES.base,
+        borderColor: rgba(COLORS.white, 0.1),
+        color: color || COLORS.tertiary,
         fontSize: SIZES.font,
-        backgroundColor: COLORS.white
+        backgroundColor: COLORS.white,
+        paddingHorizontal: 35
+      },
+      // width && { width },
+      center && { textAlign: "center" },
+      size && { fontSize: size },
+      shadow  && {
+        shadowColor: COLORS.primary,
+        shadowOffset: {
+          width: 0,
+          height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 22.00,
+        
+        elevation: 24,
       },
       style
     ]);
@@ -162,6 +188,7 @@ class Input extends Component {
       autoCorrect,
       autoCapitalize,
       placeholder,
+      placeholderTextColor: placeholderColor || color,
       textContentType: textType,
       value: this.state.value,
       onFocus: this.handleFocus,
@@ -169,8 +196,6 @@ class Input extends Component {
       onChangeText: this.handleChange,
       secureTextEntry: isSecure
     };
-    
-    
 
     return (
       <Block flex={false} margin={[SIZES.base, 0]}>
@@ -208,18 +233,18 @@ const styles = StyleSheet.create({
     borderColor: COLORS.black,
     borderRadius: SIZES.radius,
     fontSize: SIZES.font,
-    fontWeight: '500',
+    fontWeight: "500",
     color: COLORS.black,
-    height: SIZES.base * 3,
+    height: SIZES.base * 3
   },
   toggle: {
-    position: 'absolute',
-    alignItems: 'flex-end',
+    position: "absolute",
+    alignItems: "flex-end",
     width: SIZES.base * 2,
     height: SIZES.base * 2,
     top: 30,
     right: 0,
-    backgroundColor: 'white'
+    backgroundColor: "white"
   }
 });
 

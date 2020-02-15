@@ -265,7 +265,7 @@ class Button extends Component {
 Button.defaultProps = {
   color: null,
   disabled: false,
-  opacity: 0.8,
+  opacity: 0.9,
   outlined: false,
   margin: null,
   padding: null,

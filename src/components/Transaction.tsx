@@ -1,7 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, Image } from "react-native";
+import React from "react";
 import { SIZES, COLORS } from "../utils/theme";
-import { images } from "../utils";
 import Text from "./primary/Text";
 import Block from "./primary/Block";
 import Button from "./primary/Button";
@@ -18,12 +16,16 @@ const Transaction = ({ type, date, amount }) => {
         <ImageIcon name={iconName} />
       </CirIcon>
       <Block padding={SIZES.base}>
-        <Text>{title}</Text>
+        <Text tertiary sfmedium height={14} size={12} spacing={0}>
+          {title}
+        </Text>
         <Text muted tiny gray light>
           {date}
         </Text>
       </Block>
-      <Text flex={1}>{amount}</Text>
+      <Text tertiary sfmedium height={14} size={12} spacing={0}>
+        {amount}
+      </Text>
     </Block>
   );
 };
