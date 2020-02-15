@@ -6,7 +6,6 @@ import {
   Text,
   Input,
   Button,
-  Card,
   CirIcon,
   ForwardButton,
   ImageIcon

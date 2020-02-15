@@ -165,7 +165,6 @@ class Input extends Component {
         backgroundColor: COLORS.white,
         paddingHorizontal: 35
       },
-      // width && { width },
       center && { textAlign: "center" },
       size && { fontSize: size },
       shadow  && {

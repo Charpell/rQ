@@ -59,7 +59,6 @@ const AddMoneyStack = createStackNavigator(
       screen: AddMoneyScreen,
       navigationOptions: {
         title: "Add Money",
-        // tabBarVisible: false
       }
     }
   },
