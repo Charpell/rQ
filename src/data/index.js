@@ -185,5 +185,254 @@ export const WalletTransactions = [
     type: "banktransfer",
     date: "02 May 3:00PM",
     amount: "N12, 000.00"
-  }
+  },
+  {
+    id: 6,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 7,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 8,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 9,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 10,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 11,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 12,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 13,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 14,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 15,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+ 
 ];
+
+export const Transactions = [
+  {
+    id: 1,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 2,
+    type: "topup",
+    date: "02 May 3:00PM",
+    amount: "N14, 000.00"
+  },
+  {
+    id: 3,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N3, 000.00"
+  },
+  {
+    id: 4,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N2, 000.00"
+  },
+  {
+    id: 5,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 6,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 7,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 8,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 9,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 10,
+    type: "airtime",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 11,
+    type: "paybills",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 12,
+    type: "electricity",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 13,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 14,
+    type: "savingsplan",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 15,
+    type: "cabletv",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 16,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 17,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 18,
+    type: "cabletv",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 19,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 20,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 21,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 22,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 23,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 24,
+    type: "cabletv",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+]
+
+export const savedBeneficiaries = [
+  // #region
+  {
+    id: 0,
+    name: "Sani Christopher"
+  },
+  {
+    id: 1,
+    name: "Felicia Oluwatoyin"
+  },
+  {
+    id: 2,
+    name: "Halimat Damilola"
+  },
+  {
+    id: 3,
+    name: "Katherine Micheal"
+  },
+  {
+    id: 4,
+    name: "Phillips Gideon"
+  },
+  {
+    id: 5,
+    name: "Sani Christopher"
+  },
+  {
+    id: 6,
+    name: "Sani Christopher"
+  },
+  //#endregion
+]
+
+export const ussdCodes = [
+  {
+    bank: "",
+    code: "",
+    accnumber: ""
+ }
+]

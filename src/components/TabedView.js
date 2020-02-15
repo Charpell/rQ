@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import ViewPager from "@react-native-community/viewpager";
 import Button from "./primary/Button";
 import Block from "./primary/Block";
@@ -7,6 +7,7 @@ import Text from "./primary/Text";
 import ImageIcon from "./primary/ImageIcon";
 
 import { COLORS, SIZES } from "../utils/theme";
+import { FlatList } from "react-native-gesture-handler";
 
 const TabedView = props => {
   /*
@@ -61,7 +62,43 @@ const TabedView = props => {
   const { views, initialView, scroll } = props;
   const initialViewProp = (initialView && initialView) || 0; // use initialView of 0
   const [activeView, setActiveView] = useState(initialViewProp); // state of activetab initialized to initialView
+
+  const renderTab = ({ item }) => (
+    <Button
+      key={item.id}
+      primary={item.id === activeView}
+      white={item.id !== activeView}
+      flex={0}
+      width={100}
+      height={64}
+      shadow
+      radius={7}
+      center
+      middle
+      paddingVertical
+      paddingHorizontal
+      marginRight={SIZES.base}
+      onPress={() => handleViewSelected(item.id)}
+    >
+      <Block row center middle>
+        {renderIcon(item)}
+      </Block>
+      <Text
+        spacing={0.1}
+        center
+        sfregular
+        size={SIZES.caption}
+        height={12}
+        white={item.id === activeView}
+        tertiary={item.id !== activeView}
+      >
+        {item.label}
+      </Text>
+    </Button>
+  );
+
   let TabedViewRef = null;
+  let TabsListRef = null;
   const handleViewSelected = viewId => {
     setActiveView(viewId);
     TabedViewRef.setPage(viewId);
@@ -76,58 +113,48 @@ const TabedView = props => {
     let isActive = viewItem.id === activeView;
     if (isActive) {
       if (iconType(viewItem.activeIcon) === "array")
-        return viewItem.activeIcon.map(icon => { return <ImageIcon name={icon} /> });
+        return viewItem.activeIcon.map((icon, index) => {
+          return <ImageIcon key={index} name={icon} />;
+        });
       if (iconType(viewItem.activeIcon) === "regular")
         return <ImageIcon name={viewItem.activeIcon} />;
     } else {
       if (iconType(viewItem.inactiveIcon) === "array")
-        return viewItem.inactiveIcon.map(icon => {
-          return <ImageIcon name={icon} />;
+        return viewItem.inactiveIcon.map((icon, index) => {
+          return <ImageIcon key={index} name={icon} />;
         });
       if (iconType(viewItem.inactiveIcon) === "regular")
         return <ImageIcon name={viewItem.inactiveIcon} />;
     }
   };
   return (
-    <View style={{ flex: 1 }}>
-      <Block row center flex={0} middle paddingVertical={SIZES.padding} space="around">
-        {views.map(view => (
-          <Button
-            key={view.id}
-            primary={view.id === activeView}
-            white={view.id !== activeView}
-            flex={views.length * 0.1}
-            height={SIZES.base * 8}
-            shadow
-            radius={7}
-            center
-            middle
-            paddingVertical
-            paddingHorizontal
-            onPress={() => handleViewSelected(view.id)}
-          >
-            <Block row center middle>
-              {renderIcon(view)}
-            </Block>
-            <Text
-              small
-              spacing={1}
-              center
-              sfregular
-              white={view.id === activeView}
-              gray={view.id !== activeView}
-            >
-              {view.label}
-            </Text>
-          </Button>
-        ))}
+    <Block>
+      <Block
+        center
+        flex={0}
+        middle
+        paddingVertical={SIZES.base}
+        paddingHorizontal={SIZES.base}
+        spacing="around"
+      >
+        <FlatList
+          ref={ref => TabsListRef = ref}
+          showsHorizontalScrollIndicator={false}
+          style={styles.tabsContainerStyle}
+          horizontal
+          data={views}
+          keyExtractor={(item, index) =>
+            `tab-item-id-${item.id}-list-item-${index}`
+          }
+          renderItem={renderTab}
+        />
       </Block>
       <ViewPager
         orientation="horizontal"
-        style={styles.viewpager}
+        style={{ flex: 1 }}
         initialPage={initialViewProp}
         pageMargin={0}
-        scrollEnabled={(scroll && scroll) || true}
+        scrollEnabled={(scroll && scroll) || false}
         showPageIndicator={false}
         ref={ref => {
           TabedViewRef = ref;
@@ -143,13 +170,12 @@ const TabedView = props => {
           </Block>
         ))}
       </ViewPager>
-    </View>
+    </Block>
   );
 };
 
 const styles = StyleSheet.create({
-  viewpager: {
-    flex: 1
+  tabsContainerStyle: {
   }
 });
 

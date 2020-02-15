@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, View, StyleSheet } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
+import { createStackNavigator } from "react-navigation-stack";
 import Home from "./HomeNavigator";
 import Transactions from "./TransactionNavigator";
 import Wallet from "./WalletNavigator";
@@ -52,7 +53,17 @@ const Icon = props => {
     </View>
   );
 };
-
+const AddMoneyStack = createStackNavigator(
+  {
+    AddMoneyScreen: {
+      screen: AddMoneyScreen,
+      navigationOptions: {
+        title: "Add Money",
+      }
+    }
+  },
+  { defaultNavigationOptions: { ...headerStyles } }
+);
 const BottomTab = createBottomTabNavigator(
   {
     Home: {
@@ -86,14 +97,14 @@ const BottomTab = createBottomTabNavigator(
       }
     },
     AddMoneyScreen: {
-      screen: AddMoneyScreen,
+      screen: AddMoneyStack,
       navigationOptions({ screenProps, navigation }) {
         const { theme } = screenProps;
         const { routeName, index } = navigation.state;
         return {
           title: "Add Money",
           tabBarVisible: false,
-          headerShown: true,
+          headerLeft: () => (<BackButton />),
           tabBarLabel: ({ focused }) => {
             return <Label />;
           },
@@ -148,7 +159,7 @@ const BottomTab = createBottomTabNavigator(
     animationEnabled: true,
     swipeEnabled: false,
     navigationOptions: {
-      headerShown: true
+      headerShown: true,
     },
     tabBarComponent: props => <TabBarComponent {...props} />,
     tabBarOptions: {
@@ -166,7 +177,8 @@ const BottomTab = createBottomTabNavigator(
       labelPosition: "below-icon",
       activeTintColor: COLORS.primary,
       inactiveTintColor: COLORS.inactiveTab // this value is from the XD files
-    }
+    },
+    defaultNavigationOptions:  {...headerStyles}
   }
 );
 export default BottomTab;

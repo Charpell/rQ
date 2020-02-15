@@ -34,7 +34,6 @@ export default class Analytics extends Component {
           <Text primary subtitle>
             RECENT TRANSACTION
           </Text>
-          {/* <FlatList /> */}
         </Block>
       </Block>
     );
