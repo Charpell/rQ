@@ -87,7 +87,7 @@ const TabedView = props => {
         spacing={0.1}
         center
         sfregular
-        size={SIZES.caption}
+        size={SIZES.small}
         height={12}
         white={item.id === activeView}
         tertiary={item.id !== activeView}

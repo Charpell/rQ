@@ -22,6 +22,7 @@ import ImageIcon from "./primary/ImageIcon";
 import TabedView from "./TabedView";
 import Transaction from './Transaction';
 import DropDown from './DropDown';
+import TransactionsList from './TransactionsList';
 
 export {
   Block,
@@ -46,5 +47,6 @@ export {
   ImageIcon,
   TabedView,
   Transaction,
-  DropDown
+  DropDown,
+  TransactionsList
 };
