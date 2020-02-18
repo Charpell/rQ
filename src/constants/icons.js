@@ -141,7 +141,12 @@ const icons = {
     icon: require("../assets/iconone/asterisk-alt.png"),
     height: 18,
     width: 16
-  }
+  },
+  alignCenter: {
+    icon: require("../assets/iconone/align-center.png"),
+    width: 13,
+    height: 9,
+  } 
 };
 
 export default icons;

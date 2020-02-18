@@ -143,6 +143,7 @@ class Button extends Component {
       radius,
       shadow,
       elevation,
+      small,
       // colors
       color,
       transparent,
@@ -197,6 +198,7 @@ class Button extends Component {
       color && { backgroundColor: color }, // custom backgroundColor
       flex && { flex }, // flex width
       height && { height }, 
+      small && {height: SIZES.small * 2},
       width && { width }, 
       shadow && {
         elevation,
@@ -205,7 +207,7 @@ class Button extends Component {
         shadowOpacity: 0.1,
         shadowRadius: elevation
       },
-      radius && { borderRadius: radius },
+      radius && {  borderRadius: radius === true ? SIZES.btnRadius : radius  },
       marginSpacing,
       paddingSpacing,
       style

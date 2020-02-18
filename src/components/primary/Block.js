@@ -249,7 +249,7 @@ class Block extends Component {
       wrap && styles.wrap,
       shadow && {
         elevation,
-        shadowColor: COLORS.black,
+        shadowColor: COLORS.primary,
         shadowOffset: { width: 0, height: elevation - 1 },
         shadowOpacity: 0.1,
         shadowRadius: elevation

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { StyleSheet } from "react-native";
 import { SIZES } from "../../utils/theme";
 import { WalletTransactions } from "../../data";
 import Text from "../../components/primary/Text";
 import Block from "../../components/primary/Block";
 import Button from "../../components/primary/Button";
-import { Transaction } from "../../components";
+import { Transaction, TransactionsList } from "../../components";
 import ImageIcon from "../../components/primary/ImageIcon";
 
 const WalletScreen = props => {
@@ -52,7 +52,13 @@ const WalletScreen = props => {
         center
         middle
       >
-        <Text light primary paddingLeft body>
+        <Text
+          light
+          gray2
+          paddingLeft
+          size={SIZES.caption}
+          transform="uppercase"
+        >
           Recent Transactions
         </Text>
         <Button
@@ -60,19 +66,13 @@ const WalletScreen = props => {
           paddingRight
           onPress={() => navigation.navigate("WalletTransactionsScreen")}
         >
-          <Text primary caption paddingHorizontal>
+          <Text primary sfmedium size={SIZES.caption} paddingHorizontal>
             View More
           </Text>
         </Button>
       </Block>
       <Block flex={1}>
-        <FlatList
-          data={WalletTransactionsBrief}
-          keyExtractor={(item, index) =>
-            `transaction-id-${item.id}-list-item-${index}`
-          }
-          renderItem={renderTransaction}
-        />
+        <TransactionsList transactions={WalletTransactionsBrief} limit={6} />
       </Block>
       <Block row style={styles.FabContainer} middle>
         <Button
@@ -89,7 +89,7 @@ const WalletScreen = props => {
           marginHorizontal
           onPress={() => navigation.navigate("AddMoneyScreen")}
         >
-          <Block middle center>
+          <Block middle center highlight>
             <ImageIcon
               name="addCircle"
               style={{
@@ -105,7 +105,14 @@ const WalletScreen = props => {
               name="add"
             />
           </Block>
-          <Text small spacing={1} center light gray>
+          <Text
+            sfregular
+            size={SIZES.small}
+            spacing={0.1}
+            height={SIZES.caption}
+            center
+            tertiary
+          >
             Add Money
           </Text>
         </Button>
@@ -140,7 +147,14 @@ const WalletScreen = props => {
               }}
             />
           </Block>
-          <Text small spacing={1} center sfregular gray>
+          <Text
+            sfregular
+            size={SIZES.small}
+            spacing={0.1}
+            height={SIZES.caption}
+            center
+            tertiary
+          >
             Transfer Money
           </Text>
         </Button>
