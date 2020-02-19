@@ -30,6 +30,7 @@ export const SIZES = {
   radius: 4,
   padding: 24,
   btnRadius: 11,
+  cardRadius: 14,
 
   // font sizes
   h1: 26,

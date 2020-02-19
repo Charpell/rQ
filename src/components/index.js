@@ -23,6 +23,8 @@ import TabedView from "./TabedView";
 import Transaction from './Transaction';
 import DropDown from './DropDown';
 import TransactionsList from './TransactionsList';
+import ServiceCard from './ServiceCard';
+import ServiceList from './ServiceList';
 
 export {
   Block,
@@ -48,5 +50,7 @@ export {
   TabedView,
   Transaction,
   DropDown,
-  TransactionsList
+  TransactionsList,
+  ServiceCard,
+  ServiceList
 };

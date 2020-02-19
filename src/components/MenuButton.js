@@ -1,24 +1,17 @@
 import React from 'react'
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import {withNavigation} from 'react-navigation'
+import { ImageIcon, Button } from './';
+import { SIZES } from '../utils/theme';
 
-import { images } from '../constants'
 
+const MenuButton = props => {
 
-const MenuButton = ({ navigation }) => {
+  const {navigation, width, height} = props
   return (
-    <TouchableOpacity style={styles.container} onPress={() => navigation.openDrawer()}>
-      <Image source={images.menu} style={{ width: 22, height: 22 }} />
-    </TouchableOpacity>
+    <Button transparent paddingVertical={height}  height={height * 2} onPress={() => navigation.openDrawer()}>
+     <ImageIcon name="menu" />
+    </Button>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    // width: 60
-  }, 
-  logo: {
-    width: 4,
-    height: 4
-  }
-})
-export default MenuButton
+export default withNavigation(MenuButton)

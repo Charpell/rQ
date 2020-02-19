@@ -5,11 +5,14 @@ import { theme } from "../../constants";
 const { COLORS } = theme;
 
 import HomeScreen from "../../screens/Home/HomeScreen";
-import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
-import TransferScreen from "../../screens/Wallet/TransferScreen";
 import { headerStyles } from "../../constants/navigation";
 import AnalyticsScreen from "../../screens/Home/AnalyticsScreen";
-
+import ServiceScreen from "../../screens/Home/ServiceScreen";
+import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
+import AddCardScreen from "../../screens/Wallet/AddCardScreen";
+import WalletTransactionsScreen from '../../screens/Wallet/WalletTransactionsScreen';
+import TransferScreen from '../../screens/Wallet/TransferScreen';
+import WithdrawalScreen from '../../screens/Wallet/WithdrawalScreen';
 const HomeScreens = createStackNavigator(
   {
     HomeScreen: {
@@ -18,10 +21,53 @@ const HomeScreens = createStackNavigator(
         headerShown: false
       })
     },
-    TransferScreen: {
-      screen: TransferScreen
+    ServiceScreen: {
+      screen: ServiceScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "Service Title"
+      })
+    },
+    AddMoneyScreen: {
+      screen: AddMoneyScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "Add Money",
+        };
+      }
+    },
+    AddCardScreen: {
+      screen: AddCardScreen,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "Add Card",
+        };
+      }
+    },
+      TransferScreen: {
+        screen: TransferScreen,
+        navigationOptions: ({ navigation }) => {
+          return {
+            title: "Transfer",
+          };
+        }
+      },
+      WalletTransactionsScreen: {
+        screen: WalletTransactionsScreen,
+        navigationOptions: ({ navigation }) => {
+         
+          return {
+            title: "Wallet Transactions",
+          }
+        }
+    },
+    WithdrawalScreen: {
+      screen: WithdrawalScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "Withdraw Money"
+      })
     }
   },
+
   {
     defaultNavigationOptions: {
       ...headerStyles

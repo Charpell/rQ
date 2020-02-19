@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Animated, SafeAreaView, StyleSheet, View } from "react-native";
+import {
+  Animated,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  ScrollView
+} from "react-native";
 
 import expoTheme from "../../utils/theme";
 import { spacing, mergeTheme } from "../../utils";
@@ -206,6 +212,7 @@ class Block extends Component {
       primary,
       secondary,
       tertiary,
+      background,
       black,
       white,
       gray,
@@ -223,6 +230,7 @@ class Block extends Component {
       animated,
       theme,
       safe,
+      scroll,
       style,
       children,
       ...props
@@ -260,6 +268,7 @@ class Block extends Component {
       // color shortcuts
       primary && { backgroundColor: COLORS.primary },
       secondary && { backgroundColor: COLORS.secondary },
+      background && { backgroundColor: COLORS.background },
       tertiary && { backgroundColor: COLORS.tertiary },
       black && { backgroundColor: COLORS.black },
       white && { backgroundColor: COLORS.white },
@@ -287,7 +296,15 @@ class Block extends Component {
         </SafeAreaView>
       );
     }
-
+    if (scroll) {
+      return (
+        <View style={blockStyles} {...props}>
+          <ScrollView >
+            {children}
+          </ScrollView>
+        </View>
+      );
+    }
     return (
       <View style={blockStyles} {...props}>
         {children}

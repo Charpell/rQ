@@ -37,7 +37,11 @@ const icons = {
     width: 24
   },
   cube: { icon: require("../assets/iconone/cube.png"), height: 20, width: 17 },
-  copy: { icon: require("../assets/iconone/copy-alt.png"), height: 13, width: 12 },
+  copy: {
+    icon: require("../assets/iconone/copy-alt.png"),
+    height: 13,
+    width: 12
+  },
   eye: { icon: require("../assets/iconone/eye.png"), height: 16, width: 20 },
   eyeslash: {
     icon: require("../assets/iconone/eye-slash.png"),
@@ -45,6 +49,11 @@ const icons = {
     width: 20
   },
   gold: { icon: require("../assets/iconone/gold.png"), height: 20, width: 14 },
+  menuAlt: {
+    icon: require("../assets/iconone/menu-alt.png"),
+    height: 13,
+    width: 24
+  },
   menu: { icon: require("../assets/iconone/menu.png"), height: 13, width: 24 },
   home: { icon: require("../assets/iconone/home.png"), height: 20, width: 18 },
   homeAlt: {
@@ -101,7 +110,8 @@ const icons = {
   addCircle: {
     icon: require("../assets/iconone/0-plus-1.png"),
     height: 22,
-    width: 22  },
+    width: 22
+  },
   moneyInsert: {
     icon: require("../assets/iconone/money-insert.png"),
     height: 19,
@@ -145,8 +155,73 @@ const icons = {
   alignCenter: {
     icon: require("../assets/iconone/align-center.png"),
     width: 13,
-    height: 9,
-  } 
+    height: 9
+  },
+  transfer: {
+    icon: require("../assets/iconone/transfer.png"),
+    width: 30,
+    height: 27
+  },
+  mobile9: {
+    icon: require("../assets/iconone/9mobile.png"),
+    width: 41,
+    height: 39
+  },
+  airtel: {
+    icon: require("../assets/iconone/airtel.png"),
+    width: 41,
+    height: 39
+  },
+  eedc: {
+    icon: require("../assets/iconone/eedc.png"),
+    width: 41,
+    height: 39
+  },
+  ekedc: {
+    icon: require("../assets/iconone/ekedc.png"),
+    width: 41,
+    height: 39
+  },
+  glo: {
+    icon: require("../assets/iconone/glo.png"),
+    width: 41,
+    height: 39
+  },
+  ike: {
+    icon: require("../assets/iconone/ike.png"),
+    width: 41,
+    height: 39
+  },
+  josElectric: {
+    icon: require("../assets/iconone/jos-electric.png"),
+    width: 41,
+    height: 39
+  },
+  kElectric: {
+    icon: require("../assets/iconone/k-electric.png"),
+    width: 41,
+    height: 39
+  },
+  mtn: {
+    icon: require("../assets/iconone/mtn.png"),
+    width: 41,
+    height: 39
+  },
+  phElectric: {
+    icon: require("../assets/iconone/ph-electric.png"),
+    width: 41,
+    height: 39
+  },
+  smile: {
+    icon: require("../assets/iconone/smile.png"),
+    width: 41,
+    height: 39
+  },
+  withdraw: {
+    icon: require("../assets/iconone/withdraw.png"),
+    width: 29,
+    height: 27
+  },
 };
 
 export default icons;
