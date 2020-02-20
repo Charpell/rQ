@@ -157,7 +157,7 @@ class Input extends Component {
     const textStyles = StyleSheet.flatten([
       {
         borderWidth: 1,
-        height: height || SIZES.base * 5.5,
+        height: height || SIZES.base * 6,
         borderRadius: SIZES.radius * 3,
         borderColor: rgba(COLORS.white, 0.1),
         color: color || COLORS.tertiary,
@@ -166,7 +166,7 @@ class Input extends Component {
         paddingHorizontal: 35
       },
       center && { textAlign: "center" },
-      size && { fontSize: size },
+      size && { fontSize: size || SIZES.caption },
       shadow  && {
         shadowColor: COLORS.primary,
         shadowOffset: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: COLORS.black,
     borderRadius: SIZES.radius,
-    fontSize: SIZES.font,
+    fontSize: SIZES.caption,
     fontWeight: "500",
     color: COLORS.black,
     height: SIZES.base * 3

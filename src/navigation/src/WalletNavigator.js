@@ -5,8 +5,8 @@ import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
 import AddCardScreen from "../../screens/Wallet/AddCardScreen";
 import WalletTransactionsScreen from '../../screens/Wallet/WalletTransactionsScreen';
 import TransferScreen from '../../screens/Wallet/TransferScreen';
+import WithdrawalScreen from '../../screens/Wallet/WithdrawalScreen';
 import { headerStyles } from "../../constants/navigation";
-import { BackButton } from "../../components";
 
 const WalletNavigator = createStackNavigator(
   {
@@ -48,7 +48,13 @@ const WalletNavigator = createStackNavigator(
             title: "Wallet Transactions",
           }
         }
-      }
+    },
+    WithdrawalScreen: {
+      screen: WithdrawalScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "Withdraw Money"
+      })
+    }
   },
   {
     initialRouteName: "WalletScreen",

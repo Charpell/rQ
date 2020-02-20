@@ -436,3 +436,128 @@ export const ussdCodes = [
     accnumber: ""
  }
 ]
+
+export const airtimeServices = [
+  {
+    id: 'airtime',
+    name: 'MTN',
+    icon: 'mtn'
+  },
+  {
+    id: 'airtime',
+    name: 'Airtel',
+    icon: 'airtel'
+  },
+  {
+    id: 'airtime',
+    name: 'GLO',
+    icon: 'glo'
+  },
+  {
+    id: 'airtime',
+    name: '9Mobile',
+    icon: 'mobile9'
+  },
+]
+
+export const dataSubscriptionServices = [
+  {
+    name: 'MTN',
+    icon: 'mtn'
+  },
+  {
+    name: 'Airtel',
+    icon: 'airtel'
+  },
+  {
+    name: 'GLO',
+    icon: 'glo'
+  },
+  {
+    name: '9Mobile',
+    icon: 'mobile9'
+  },
+  {
+    name: 'Smile',
+    icon: 'smile'
+  },
+]
+export const cableServices = [
+  {
+    id: 'cabletv',
+    name: 'DSTV',
+    icon: 'add'
+  },
+  {
+    id: 'cabletv',
+    name: 'GOTV',
+    icon: 'add'
+  },
+  {
+    id: 'cabletv',
+    name: 'StarTimes',
+    icon: 'add'
+  },
+]
+
+export const electricityServices = [
+  {
+    id: 'electricity',
+    name: 'Abuja Electric',
+    icon: 'add',
+  },
+  {
+    id: 'electricity',
+    name: 'Eko Electric',
+    icon: 'ekedc',
+  },
+  {
+    id: 'electricity',
+    name: 'Ibadan Electric',
+    icon: 'add',
+  },
+  {
+    id: 'electricity',
+    name: 'Ikeja electric',
+    icon: 'ike',
+  },
+  {
+    id: 'electricity',
+    name: 'Kano Electric',
+    icon: 'kElectric',
+  },
+  {
+    id: 'electricity',
+    name: 'Port Harcourt Electric',
+    icon: 'phElectric',
+  },
+  {
+    id: 'electricity',
+    name: 'Jos Electric',
+    icon: 'josElectric',
+  },
+  {
+    id: 'electricity',
+    name: 'Kaduna Electric',
+    icon: 'add',
+  },
+]
+
+export const cards = [
+  {
+    label: 'Visa ***3459',
+    value: ''
+  },
+  {
+    label: 'Visa ***3459',
+    value: ''
+  },
+  {
+    label: 'Visa ***3459',
+    value: ''
+  },
+  {
+    label: 'Visa ***3459',
+    value: ''
+  },
+]
