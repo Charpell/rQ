@@ -6,6 +6,7 @@ import AddCardScreen from "../../screens/Wallet/AddCardScreen";
 import WalletTransactionsScreen from '../../screens/Wallet/WalletTransactionsScreen';
 import TransferScreen from '../../screens/Wallet/TransferScreen';
 import WithdrawalScreen from '../../screens/Wallet/WithdrawalScreen';
+import TransferToMyBank from '../../screens/Wallet/TransferToMyBank'
 import { headerStyles } from "../../constants/navigation";
 
 const WalletNavigator = createStackNavigator(
@@ -39,6 +40,14 @@ const WalletNavigator = createStackNavigator(
             title: "Transfer",
           };
         }
+    },
+    TransferToMyBank: {
+      screen: TransferToMyBank,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: "Transfer"
+        }
+      }
       },
       WalletTransactionsScreen: {
         screen: WalletTransactionsScreen,

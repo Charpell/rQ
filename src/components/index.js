@@ -25,6 +25,8 @@ import DropDown from './DropDown';
 import TransactionsList from './TransactionsList';
 import ServiceCard from './ServiceCard';
 import ServiceList from './ServiceList';
+import Beneficiaries from './Beneficiaries';
+import CloseButton from './CloseButton'
 
 export {
   Block,
@@ -52,5 +54,7 @@ export {
   DropDown,
   TransactionsList,
   ServiceCard,
-  ServiceList
+  ServiceList,
+  Beneficiaries,
+  CloseButton
 };

@@ -6,10 +6,10 @@ import Home from "./HomeNavigator";
 import Transactions from "./TransactionNavigator";
 import Wallet from "./WalletNavigator";
 import Support from "./SupportNavigator";
-import AddMoneyScreen from "../../screens/Wallet/AddMoneyScreen";
 import { SIZES, COLORS } from "../../utils/theme";
 import { Text, BackButton } from "../../components";
-import { images, navigation } from "../../constants";
+import { navigation } from "../../constants";
+import TransferScreen from '../../screens/Wallet/TransferScreen';
 
 const TabBarComponent = props => <BottomTabBar {...props} />;
 
@@ -53,12 +53,12 @@ const Icon = props => {
     </View>
   );
 };
-const AddMoneyStack = createStackNavigator(
+const TransferStack = createStackNavigator(
   {
-    AddMoneyScreen: {
-      screen: AddMoneyScreen,
+    TransferScreen: {
+      screen: TransferScreen,
       navigationOptions: {
-        title: "Add Money",
+        title: "Transfer",
       }
     }
   },
@@ -96,8 +96,8 @@ const BottomTab = createBottomTabNavigator(
         };
       }
     },
-    AddMoneyScreen: {
-      screen: AddMoneyStack,
+    TransferScreen: {
+      screen: TransferStack,
       navigationOptions({ screenProps, navigation }) {
         const { theme } = screenProps;
         const { routeName, index } = navigation.state;
