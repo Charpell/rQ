@@ -163,7 +163,9 @@ class Input extends Component {
         color: color || COLORS.tertiary,
         fontSize: SIZES.font,
         backgroundColor: COLORS.white,
-        paddingHorizontal: 35
+        paddingHorizontal: 35,
+        marginTop: 10,
+        marginBottom: 10
       },
       center && { textAlign: "center" },
       size && { fontSize: size || SIZES.caption },

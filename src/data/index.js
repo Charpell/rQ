@@ -498,86 +498,102 @@ export const airtimeServices = [
 
 export const dataSubscriptionServices = [
   {
-    name: "MTN",
-    icon: "mtn"
+    name: 'MTN',
+    icon: 'mtn',
+    screen: 'DataSubscribeScreen'
   },
   {
-    name: "Airtel",
-    icon: "airtel"
+    name: 'Airtel',
+    icon: 'airtel',
+    screen: 'DataSubscribeScreen'
   },
   {
-    name: "GLO",
-    icon: "glo"
+    name: 'GLO',
+    icon: 'glo',
+    screen: 'DataSubScribeScreen'
   },
   {
-    name: "9Mobile",
-    icon: "mobile9"
+    name: '9Mobile',
+    icon: 'mobile9',
+    screen: 'DataSubScribeScreen'
   },
   {
-    name: "Smile",
-    icon: "smile"
-  }
-];
+    name: 'Smile',
+    icon: 'smile',
+    screen: 'DataSubscribeScreen'
+  },
+]
 export const cableServices = [
   {
-    id: "cabletv",
-    name: "DSTV",
-    icon: "add"
+    id: 'cabletv',
+    name: 'DSTV',
+    icon: 'add',
+    screen: 'CableSubscribeScreen'
   },
   {
-    id: "cabletv",
-    name: "GOTV",
-    icon: "add"
+    id: 'cabletv',
+    name: 'GOTV',
+    icon: 'add',
+    screen: 'CableSubscribeScreen'
   },
   {
-    id: "cabletv",
-    name: "StarTimes",
-    icon: "add"
-  }
-];
+    id: 'cabletv',
+    name: 'StarTimes',
+    icon: 'add',
+    screen: 'CableSubscribeScreen'
+  },
+]
 
 export const electricityServices = [
   {
-    id: "electricity",
-    name: "Abuja Electric",
-    icon: "add"
+    id: 'electricity',
+    name: 'Abuja Electric',
+    icon: 'add',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Eko Electric",
-    icon: "ekedc"
+    id: 'electricity',
+    name: 'Eko Electric',
+    icon: 'ekedc',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Ibadan Electric",
-    icon: "add"
+    id: 'electricity',
+    name: 'Ibadan Electric',
+    icon: 'add',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Ikeja electric",
-    icon: "ike"
+    id: 'electricity',
+    name: 'Ikeja electric',
+    icon: 'ike',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Kano Electric",
-    icon: "kElectric"
+    id: 'electricity',
+    name: 'Kano Electric',
+    icon: 'kElectric',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Port Harcourt Electric",
-    icon: "phElectric"
+    id: 'electricity',
+    name: 'Port Harcourt Electric',
+    icon: 'phElectric',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Jos Electric",
-    icon: "josElectric"
+    id: 'electricity',
+    name: 'Jos Electric',
+    icon: 'josElectric',
+    screen: 'ElectricitySubscribeScreen'
   },
   {
-    id: "electricity",
-    name: "Kaduna Electric",
-    icon: "add"
-  }
-];
+    id: 'electricity',
+    name: 'Kaduna Electric',
+    icon: 'add',
+    screen: 'ElectricitySubscribeScreen'
+  },
+]
 
 export const cards = [
   {

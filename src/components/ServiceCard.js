@@ -4,7 +4,7 @@ import { Button, Text, ImageIcon, Card } from "./";
 import { SIZES } from "../utils/theme";
 
 const ServiceCard = props => {
-  const { navigation, name, icon, style } = props;
+  const { navigation, name, icon, screen, style } = props;
 
   return (
     <Button
@@ -16,7 +16,7 @@ const ServiceCard = props => {
       middle
       center
       padding
-      onPress={() => navigation.navigate("ServiceScreen")}
+      onPress={() => navigation.navigate(screen, { data: icon })}
     >
       <Card padding={0}  radius={SIZES.cardRadius} center middle>
         <ImageIcon name={icon} />

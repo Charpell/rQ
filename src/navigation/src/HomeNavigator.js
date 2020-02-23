@@ -13,6 +13,9 @@ import AddCardScreen from "../../screens/Wallet/AddCardScreen";
 import WalletTransactionsScreen from '../../screens/Wallet/WalletTransactionsScreen';
 import TransferScreen from '../../screens/Wallet/TransferScreen';
 import WithdrawalScreen from '../../screens/Wallet/WithdrawalScreen';
+import DataSubscribeScreen from '../../screens/Service/DataSubscribe'
+import CableSubscribeScreen from '../../screens/Service/CableSubscribe'
+import ElectricitySubscribeScreen from '../../screens/Service/ElectricitySubscribe'
 const HomeScreens = createStackNavigator(
   {
     HomeScreen: {
@@ -65,7 +68,25 @@ const HomeScreens = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: "Withdraw Money"
       })
-    }
+    },
+    DataSubscribeScreen: {
+      screen: DataSubscribeScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
+    CableSubscribeScreen: {
+      screen: CableSubscribeScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
+    ElectricitySubscribeScreen: {
+      screen: ElectricitySubscribeScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
   },
 
   {
