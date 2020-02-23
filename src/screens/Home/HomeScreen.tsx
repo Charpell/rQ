@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Modal } from "react-native";
+import { Modal, Alert } from "react-native";
 import {
   MenuButton,
   FavouriteService,
@@ -29,11 +29,7 @@ const HomeScreen = ({ navigation }) => {
         height={SIZES.base * 7}
         space="between"
         style={{
-          alignItems: "flex-end",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0
+          alignItems: "flex-end"
         }}
         row
         bottom
@@ -46,20 +42,27 @@ const HomeScreen = ({ navigation }) => {
         <Text sfmedium white title height={21}>
           RubeePay
         </Text>
-        <MaterialCommunityIcons
-          name="bell"
-          color="white"
-          size={SIZES.base * 2}
-        />
+        <Button
+          transparent
+          height={SIZES.base * 2}
+          paddingHorizontal={SIZES.base * 2}
+          onPress={() => Alert.alert("wtf")}
+        >
+          <MaterialCommunityIcons
+            name="bell"
+            color="white"
+            size={SIZES.base * 2}
+          />
+        </Button>
       </Block>
-      <Block flex={6} background scroll>
+      <Block background scroll>
         <Block
           row
           center
           middle
           space="between"
           paddingHorizontal={SIZES.padding}
-          marginTop={SIZES.base * 11}
+          marginTop={SIZES.base * 4}
         >
           <Button
             white
@@ -89,7 +92,7 @@ const HomeScreen = ({ navigation }) => {
             width={94}
             height={64}
             radius={SIZES.body}
-            onPress={() => navigation.navigate("TransferScreen")}
+            onPress={() => navigation.navigate("TransferToMyBank")}
           >
             <Block center middle>
               <ImageIcon name="transfer" />

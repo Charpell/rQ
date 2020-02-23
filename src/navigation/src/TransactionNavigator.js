@@ -1,18 +1,16 @@
 import React from "react";
-import { Image } from "react-native";
 
+import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
-import { Entypo } from "@expo/vector-icons";
 
 import { SIZES, COLORS } from "../../utils/theme";
-import { navigation } from "../../constants";
 
 import AllTransactions from "../../screens/Transactions/AllTransactions";
-import SavingsTransactions from "../../screens/Transactions/SavingsTransactions";
 import GrowWealthTransactions from "../../screens/Transactions/GrowWealthTransactions";
+import TransactionSummary from "../../screens/Transactions/TransactionSummary";
+
+import { CloseButton } from "../../components";
 import { headerStyles } from "../../constants/navigation";
-import { createMaterialTopTabNavigator } from "react-navigation-tabs";
-import BackButton from "../../components/BackButton";
 
 const TransactionsTab = createMaterialTopTabNavigator(
   {
@@ -21,14 +19,6 @@ const TransactionsTab = createMaterialTopTabNavigator(
       navigationOptions: ({ navigation }) => {
         return {
           title: "All"
-        };
-      }
-    },
-    SavingsTransactions: {
-      screen: SavingsTransactions,
-      navigationOptions: ({ navigation }) => {
-        return {
-          title: "Savings"
         };
       }
     },
@@ -44,14 +34,17 @@ const TransactionsTab = createMaterialTopTabNavigator(
   {
     initialRouteName: "AllTransactions",
     swipeEnabled: true,
+    scrollEnabled: false,
+    pressColor: COLORS.primary,
     tabBarOptions: {
-      upperCaseLabel: false,
+      upperCaseLabel: true,
       labelStyle: {
         color: COLORS.tertiary,
         marginBottom: 0,
+        paddingBottom: 0
       },
       indicatorStyle: {
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.primary
       },
       tabStyle: {
         paddingBottom: 0
@@ -76,8 +69,18 @@ const TransactionNavigator = createStackNavigator(
       navigationOptions: {
         title: "Transactions"
       }
+    },
+    TransactionSummary: {
+      screen: TransactionSummary,
+      navigationOptions: ({ navigation }) => {
+        return {
+          title: 'Transaction Summary',
+          headerLeft: <CloseButton />,
+          headerShown: true
+        }
+      }
     }
   },
-  { defaultNavigationOptions: { ...headerStyles } }
+  { mode: "modal", defaultNavigationOptions: { ...headerStyles } }
 );
 export default TransactionNavigator;

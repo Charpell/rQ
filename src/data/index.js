@@ -245,11 +245,10 @@ export const WalletTransactions = [
     type: "banktransfer",
     date: "02 May 3:00PM",
     amount: "N12, 000.00"
-  },
- 
+  }
 ];
 
-export const Transactions = [
+export const transactions = [
   {
     id: 1,
     type: "banktransfer",
@@ -308,7 +307,14 @@ export const Transactions = [
     id: 10,
     type: "airtime",
     date: "02 May 3:00PM",
-    amount: "N12, 000.00"
+    amount: "N12, 000.00",
+    status: 'Success',
+    service: 'MTN',
+    sender: '',
+    phone: '',
+    charges: '',
+    commision: '',
+    narration: ''
   },
   {
     id: 11,
@@ -394,7 +400,37 @@ export const Transactions = [
     date: "02 May 3:00PM",
     amount: "N12, 000.00"
   },
-]
+  {
+    id: 25,
+    type: "growwealth",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 26,
+    type: "banktransfer",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 27,
+    type: "topup",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 28,
+    type: "growwealth",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  },
+  {
+    id: 29,
+    type: "growwealth",
+    date: "02 May 3:00PM",
+    amount: "N12, 000.00"
+  }
+];
 
 export const savedBeneficiaries = [
   // #region
@@ -425,139 +461,140 @@ export const savedBeneficiaries = [
   {
     id: 6,
     name: "Sani Christopher"
-  },
+  }
   //#endregion
-]
+];
 
 export const ussdCodes = [
   {
     bank: "",
     code: "",
     accnumber: ""
- }
-]
+  }
+];
 
 export const airtimeServices = [
   {
-    id: 'airtime',
-    name: 'MTN',
-    icon: 'mtn'
+    id: "airtime",
+    name: "MTN",
+    icon: "mtn"
   },
   {
-    id: 'airtime',
-    name: 'Airtel',
-    icon: 'airtel'
+    id: "airtime",
+    name: "Airtel",
+    icon: "airtel"
   },
   {
-    id: 'airtime',
-    name: 'GLO',
-    icon: 'glo'
+    id: "airtime",
+    name: "GLO",
+    icon: "glo"
   },
   {
-    id: 'airtime',
-    name: '9Mobile',
-    icon: 'mobile9'
-  },
-]
+    id: "airtime",
+    name: "9Mobile",
+    icon: "mobile9"
+  }
+];
 
 export const dataSubscriptionServices = [
   {
-    name: 'MTN',
-    icon: 'mtn'
+    name: "MTN",
+    icon: "mtn"
   },
   {
-    name: 'Airtel',
-    icon: 'airtel'
+    name: "Airtel",
+    icon: "airtel"
   },
   {
-    name: 'GLO',
-    icon: 'glo'
+    name: "GLO",
+    icon: "glo"
   },
   {
-    name: '9Mobile',
-    icon: 'mobile9'
+    name: "9Mobile",
+    icon: "mobile9"
   },
   {
-    name: 'Smile',
-    icon: 'smile'
-  },
-]
+    name: "Smile",
+    icon: "smile"
+  }
+];
 export const cableServices = [
   {
-    id: 'cabletv',
-    name: 'DSTV',
-    icon: 'add'
+    id: "cabletv",
+    name: "DSTV",
+    icon: "add"
   },
   {
-    id: 'cabletv',
-    name: 'GOTV',
-    icon: 'add'
+    id: "cabletv",
+    name: "GOTV",
+    icon: "add"
   },
   {
-    id: 'cabletv',
-    name: 'StarTimes',
-    icon: 'add'
-  },
-]
+    id: "cabletv",
+    name: "StarTimes",
+    icon: "add"
+  }
+];
 
 export const electricityServices = [
   {
-    id: 'electricity',
-    name: 'Abuja Electric',
-    icon: 'add',
+    id: "electricity",
+    name: "Abuja Electric",
+    icon: "add"
   },
   {
-    id: 'electricity',
-    name: 'Eko Electric',
-    icon: 'ekedc',
+    id: "electricity",
+    name: "Eko Electric",
+    icon: "ekedc"
   },
   {
-    id: 'electricity',
-    name: 'Ibadan Electric',
-    icon: 'add',
+    id: "electricity",
+    name: "Ibadan Electric",
+    icon: "add"
   },
   {
-    id: 'electricity',
-    name: 'Ikeja electric',
-    icon: 'ike',
+    id: "electricity",
+    name: "Ikeja electric",
+    icon: "ike"
   },
   {
-    id: 'electricity',
-    name: 'Kano Electric',
-    icon: 'kElectric',
+    id: "electricity",
+    name: "Kano Electric",
+    icon: "kElectric"
   },
   {
-    id: 'electricity',
-    name: 'Port Harcourt Electric',
-    icon: 'phElectric',
+    id: "electricity",
+    name: "Port Harcourt Electric",
+    icon: "phElectric"
   },
   {
-    id: 'electricity',
-    name: 'Jos Electric',
-    icon: 'josElectric',
+    id: "electricity",
+    name: "Jos Electric",
+    icon: "josElectric"
   },
   {
-    id: 'electricity',
-    name: 'Kaduna Electric',
-    icon: 'add',
-  },
-]
+    id: "electricity",
+    name: "Kaduna Electric",
+    icon: "add"
+  }
+];
 
 export const cards = [
   {
-    label: 'Visa ***3459',
-    value: ''
+    label: "Visa ***3459",
+    value: ""
   },
   {
-    label: 'Visa ***3459',
-    value: ''
+    label: "Visa ***3459",
+    value: ""
   },
   {
-    label: 'Visa ***3459',
-    value: ''
+    label: "MasterCard ***3459",
+    value: ""
   },
   {
-    label: 'Visa ***3459',
-    value: ''
-  },
-]
+    label: "Visa ***3459",
+    value: ""
+  }
+];
+

@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
-
+import { TransactionsList, Block } from "../../components";
+import { transactions } from "../../data";
 const GrowWealthTransactions = () => {
   return (
-    <View>
-      <Text>Grow wealth transactions</Text>
-    </View>
+    <Block background>
+      <TransactionsList transactions={transactions} type="growwealth" />
+    </Block>
   );
 };
 

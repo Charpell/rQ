@@ -3,6 +3,8 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 
 import BottomTabs from "./src";
 import SideBar from "../components/SideBar";
+import { CloseButton } from "../components";
+import TransactionSummary from "../screens/Transactions/TransactionSummary";
 
 export default createDrawerNavigator(
   {
@@ -15,6 +17,5 @@ export default createDrawerNavigator(
     contentOptions: {
       activeBackgrundColor: "transparent"
     }
-  },
-  {}
+  }
 );

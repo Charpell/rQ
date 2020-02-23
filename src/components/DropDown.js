@@ -42,7 +42,7 @@ const DropDown = props => {
         style={dropDownStyle}
         {...props}
       >
-        <Picker.Item color={color} label={defaultLabel} value="" />
+        <Picker.Item color={color || COLORS.muted} label={defaultLabel} value="" />
         {items.map((item, index) => (
           <Picker.Item
             key={index}

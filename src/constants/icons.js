@@ -222,6 +222,31 @@ const icons = {
     width: 29,
     height: 27
   },
+  close: {
+    icon: require("../assets/iconone/close.png"),
+    width: 14,
+    height: 14
+  },
+  users: {
+    icon: require("../assets/iconone/users.png"),
+    width: 26,
+    height: 20
+  },
+  usersAlt: {
+    icon: require("../assets/iconone/users-alt.png"),
+    width: 26,
+    height: 20
+  },
+  gold: {
+    icon: require("../assets/iconone/gold.png"),
+    width: 28,
+    height: 20
+  },
+  goldAlt: {
+    icon: require("../assets/iconone/gold-alt.png"),
+    width: 28,
+    height: 20
+  },
 };
 
 export default icons;
