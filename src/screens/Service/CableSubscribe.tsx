@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FlatList } from "react-native";
 import {
   TabedView,
@@ -17,19 +17,44 @@ import { savedBeneficiaries } from "../../data";
 import { Ionicons } from "@expo/vector-icons";
 import { Dropdown } from 'react-native-material-dropdown'
 import { rgba, mergeTheme } from "../../utils";
+import { useForm } from 'react-hook-form'
+import { AuthContext } from '../../contex/auth/authState'
+import { VendorContext } from '../../contex/vendor/vendorState'
+
 
 
 const CableSubscribeScreen = props => {
-  const [ accNumberValue, onAccNumberChange ] = useState("")
-  const [ bankNameValue, onBankNameChange ] = useState("")
-  const [ narrationValue, onNarrationChange ] = useState("")
+  const authContext = useContext(AuthContext)
+  const vendorContext = useContext(VendorContext)
+
+  const { getCabletvDetails, payForCable } = vendorContext
+  
+
+  const { register, handleSubmit, setValue, errors } = useForm()
   const [ data, setData ] = useState([{
-      value: 'Banana',
-    }, {
-      value: 'Mango',
-    }, {
-      value: 'Pear',
+      value: 'STARTIMES',
     }])
+
+  useEffect(() => {
+    register({ name: "phone"}, { required: true, maxLength: 11, minLength: 1 })
+    register({ name: "smartCardNumber"}, { required: true })
+    register({ name: "cable"}, { required: true })
+    register({ name: "amount"}, { required: true, pattern: /\d+/ })
+  }, [register])
+
+  const onSubmit = data => {
+    payForCable(data)
+      .then((response) => {
+        if (response.status === 'failure') {
+          console.log(response.message)
+        } else {
+          console.log(response.data)
+        }
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  }
 
   return (
     <Block safe color={COLORS.background}>
@@ -59,12 +84,10 @@ const CableSubscribeScreen = props => {
               width={154}
               height={SIZES.padding * 2}
               maxLength={16}
-              keyboardType="number-pad"
               size={SIZES.caption}
-              value={accNumberValue}
               placeholder={"Recipient Phone Number"}
               onChangeText={text => {
-                onAccNumberChange(text);
+                setValue('phone', text);
               }}
             />  
             <Input
@@ -72,18 +95,19 @@ const CableSubscribeScreen = props => {
               width={154}
               height={SIZES.padding * 2}
               maxLength={16}
-              keyboardType="number-pad"
               size={SIZES.caption}
-              value={accNumberValue}
               placeholder={"Smart Card Number"}
               onChangeText={text => {
-                onAccNumberChange(text);
+                setValue('smartCardNumber', text);
               }}
             />   
             <Dropdown
               label='Select Plan'
               data={data}
               fontSize={12}
+              onChangeText={text => {
+                setValue('cable', text)
+              }}
               containerStyle={{
                 borderWidth: 1,
                 height:  SIZES.base * 6,
@@ -102,10 +126,9 @@ const CableSubscribeScreen = props => {
               width={154}
               maxLength={16}
               size={SIZES.caption}
-              value={narrationValue}
               placeholder={"Amount"}
               onChangeText={text => {
-                onNarrationChange(text);
+                setValue('amount', parseInt(text));
               }}
             />
             <Block
@@ -122,6 +145,7 @@ const CableSubscribeScreen = props => {
                 width={SIZES.width * 0.7}
                 height={SIZES.base * 7}
                 radius={SIZES.btnRadius}
+                onPress={handleSubmit(onSubmit)}
               >
                 <Text
                   white

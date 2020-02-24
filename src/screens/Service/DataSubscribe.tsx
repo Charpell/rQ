@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FlatList } from "react-native";
 import {
   TabedView,
@@ -17,19 +17,34 @@ import { savedBeneficiaries } from "../../data";
 import { Ionicons } from "@expo/vector-icons";
 import { Dropdown } from 'react-native-material-dropdown'
 import { rgba, mergeTheme } from "../../utils";
+import { useForm } from 'react-hook-form'
+import { AuthContext } from '../../contex/auth/authState'
+import { VendorContext } from '../../contex/vendor/vendorState'
+
 
 
 const DataSubscribeScreen = props => {
-  const [ accNumberValue, onAccNumberChange ] = useState("")
-  const [ bankNameValue, onBankNameChange ] = useState("")
-  const [ narrationValue, onNarrationChange ] = useState("")
+  const authContext = useContext(AuthContext)
+  const vendorContext = useContext(VendorContext)
+
+  const { payForData } = vendorContext
+  
+
+  const { register, handleSubmit, setValue, errors } = useForm()
   const [ data, setData ] = useState([{
-      value: 'Banana',
-    }, {
-      value: 'Mango',
-    }, {
-      value: 'Pear',
+      value: '100',
     }])
+
+  useEffect(() => {
+    register({ name: "mobileNumber"}, { required: true, maxLength: 11, minLength: 1 })
+    register({ name: "amount"}, { required: true, pattern: /\d+/ })
+    register({ name: "servicePlanCode"}, { required: true })
+  }, [register])
+
+  const onSubmit = data => {
+    const newData = { network: props.navigation.state.params.name, ...data }
+    console.log('newData', newData)
+  }
 
   return (
     <Block safe color={COLORS.background}>
@@ -61,16 +76,18 @@ const DataSubscribeScreen = props => {
               maxLength={16}
               keyboardType="number-pad"
               size={SIZES.caption}
-              value={accNumberValue}
               placeholder={"Recipient Phone Number"}
               onChangeText={text => {
-                onAccNumberChange(text);
+                setValue('mobileNumber', text);
               }}
             />    
             <Dropdown
               label='Select Plan'
               data={data}
               fontSize={12}
+              onChangeText={text => {
+                setValue('servicePlanCode', text)
+              }}
               containerStyle={{
                 borderWidth: 1,
                 height:  SIZES.base * 6,
@@ -89,10 +106,9 @@ const DataSubscribeScreen = props => {
               width={154}
               maxLength={16}
               size={SIZES.caption}
-              value={narrationValue}
               placeholder={"Amount"}
               onChangeText={text => {
-                onNarrationChange(text);
+                setValue('amount', parseInt(text))
               }}
             />
             <Block
@@ -109,6 +125,7 @@ const DataSubscribeScreen = props => {
                 width={SIZES.width * 0.7}
                 height={SIZES.base * 7}
                 radius={SIZES.btnRadius}
+                onPress={handleSubmit(onSubmit)}
               >
                 <Text
                   white

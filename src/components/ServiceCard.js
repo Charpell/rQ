@@ -16,7 +16,7 @@ const ServiceCard = props => {
       middle
       center
       padding
-      onPress={() => navigation.navigate(screen, { data: icon })}
+      onPress={() => navigation.navigate(screen, { data: icon, name: name })}
     >
       <Card padding={0}  radius={SIZES.cardRadius} center middle>
         <ImageIcon name={icon} />
