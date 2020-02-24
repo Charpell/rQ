@@ -27,6 +27,7 @@ import ServiceCard from './ServiceCard';
 import ServiceList from './ServiceList';
 import Beneficiaries from './Beneficiaries';
 import CloseButton from './CloseButton'
+import Header from './Header'
 
 export {
   Block,
@@ -56,5 +57,6 @@ export {
   ServiceCard,
   ServiceList,
   Beneficiaries,
-  CloseButton
+  CloseButton,
+  Header
 };

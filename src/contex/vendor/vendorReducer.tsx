@@ -1,15 +1,12 @@
 import {
-  GET_ELECTRICITY_DETAILS,
+  BUY_VENDOR,
   VENDORS_ERROR,
-  BUY_ELECTRICITY,
-  GET_CABLE_DETAILS,
-  BUY_CABLE
+  GET_VENDOR_DETAILS
 } from '../types'
 
 export default (state, action) => {
   switch(action.type) {
-    case GET_ELECTRICITY_DETAILS:
-    case GET_CABLE_DETAILS:
+    case BUY_VENDOR:
       return {
         ...state,
         userData: action.payload,

@@ -7,7 +7,7 @@ const ServiceList = props => {
   const { service, category } = props;
 
   const renderService = ({ item }) => (
-    <ServiceCard style={styles.serviceCardStyles} name={item.name} icon={item.icon} />
+    <ServiceCard style={styles.serviceCardStyles} name={item.name} icon={item.icon} screen={item.screen} />
   );
   return (
     <Block marginTop={SIZES.padding}>
