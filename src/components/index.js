@@ -56,10 +56,7 @@ export {
   TransactionsList,
   ServiceCard,
   ServiceList,
-<<<<<<< HEAD
   Beneficiaries,
-  CloseButton
-=======
+  CloseButton,
   Header
->>>>>>> Network
 };
