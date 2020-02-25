@@ -12,15 +12,21 @@ import {
 } from "../../components";
 import { SIZES, COLORS } from "../../utils/theme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {
-  airtimeServices,
-  dataSubscriptionServices,
-  electricityServices,
-  cableServices
-} from "../../data/index";
+import { VendorContext } from '../../contex/vendor/vendorState'
+
 
 const HomeScreen = ({ navigation }) => {
   const [analyticsVisible, setAnalyticsVisible] = useState(false);
+  const vendorContext = useContext(VendorContext)
+  const { getAllService, service, loading } = vendorContext
+
+  useEffect(() => {
+    getAllService()
+  }, [])
+
+  const getServiceType = category => {
+    return service.filter((data) => category === data.serviceType)
+  }
   return (
     <Block safe background>
       <Block
@@ -132,13 +138,17 @@ const HomeScreen = ({ navigation }) => {
           </Button>
         </Block>
         <Block paddingHorizontal={SIZES.padding} marginTop={SIZES.base * 4}>
-          <ServiceList category="airtime" service={airtimeServices} />
-          <ServiceList
-            category="Data Subscription"
-            service={dataSubscriptionServices}
-          />
-          <ServiceList category="Cable TV" service={cableServices} />
-          <ServiceList category="Electricity" service={electricityServices} />
+          {!loading ? (
+            <Block flex={false}>
+              <ServiceList service={getServiceType('AIRTIME')} category={'AIRTIME'} />
+              <ServiceList
+                service={getServiceType('DATA')}
+                category={'DATA'}
+              />
+              <ServiceList service={getServiceType('CABLETV')} category={'CABLETV'} />
+              <ServiceList service={getServiceType('ELECTRICITY')} category={'ELECTRICITY'} />
+            </Block>
+          ): <Text>Loading</Text>}
         </Block>
       </Block>
       <Modal visible={analyticsVisible} animationType="slide">

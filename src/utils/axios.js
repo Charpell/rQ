@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://rubeeq.herokuapp.com/rbq/v1'
+const baseUrl = 'https://rubeepay.herokuapp.com/rbq/v1'
 
 import { getStorageData } from './AsyncStorage'
 
@@ -18,11 +18,12 @@ const setAuthorization =  async () => {
 export default async function (url, formData) {
   const config = {
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'access_token': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNDgyMTI2ZDM0MDUyMDA2ODQ0NGI0ZSIsInJvbGUiOiJzdXBlckFkbWluIiwidXNlcklkIjoiUlEyYTFlNDkxMC01MDEzLTExZWEtODczOC1lZDlhYzAyZjllMGQiLCJpYXQiOjE1ODIwNDk1OTV9.N-TKbgb5A2S9wo9MjVKa3pmTGRSGfHB1jVPrsXMp3ns'
     }
   }
   
-  await setAuthorization()
+  // await setAuthorization()
   try {
     return await axios.post(`${baseUrl}/${url}`, formData, config);
   } catch (error) {

@@ -27,33 +27,22 @@ const CableSubscribeScreen = props => {
   const authContext = useContext(AuthContext)
   const vendorContext = useContext(VendorContext)
 
-  const { getCabletvDetails, payForCable } = vendorContext
+  const { getCabletvDetails, payForCable, variationDetails, vendorDetails, currentService } = vendorContext
   
 
   const { register, handleSubmit, setValue, errors } = useForm()
-  const [ data, setData ] = useState([{
-      value: 'STARTIMES',
-    }])
+  const [ variationData, setVariationData ] = useState([])
 
   useEffect(() => {
     register({ name: "phone"}, { required: true, maxLength: 11, minLength: 1 })
-    register({ name: "smartCardNumber"}, { required: true })
     register({ name: "cable"}, { required: true })
-    register({ name: "amount"}, { required: true, pattern: /\d+/ })
   }, [register])
 
-  const onSubmit = data => {
-    payForCable(data)
-      .then((response) => {
-        if (response.status === 'failure') {
-          console.log(response.message)
-        } else {
-          console.log(response.data)
-        }
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
+  const onSubmit = async data => {
+    const newData = { smartCardNumber: vendorDetails.account, serviceName: currentService.serviceName, amount: variationData.variation_amount, paymentMadeWith: "WALLET", customernumber: vendorDetails.customernumber.toString(), customername: vendorDetails.name, variation_code: variationData.variation_code, mobileNumber: data.phone}
+    const result = await payForCable(newData)
+    console.log('result', result)
+
   }
 
   return (
@@ -72,9 +61,6 @@ const CableSubscribeScreen = props => {
       <Text primary sfregular size={SIZES.subtitle} margin={20}>
         Kindly Subscribe for your Cable TV
       </Text>
-        <Block flex={0.1} center middle margin={[60, 0, 0]}>
-          <ImageIcon name={props.navigation.state.params.data} style={{ width: 100, height: 100 }}/>
-        </Block>
       <Block
             paddingHorizontal={SIZES.base * 2}
             flex={false}
@@ -96,17 +82,23 @@ const CableSubscribeScreen = props => {
               height={SIZES.padding * 2}
               maxLength={16}
               size={SIZES.caption}
-              placeholder={"Smart Card Number"}
-              onChangeText={text => {
-                setValue('smartCardNumber', text);
-              }}
+              value={vendorDetails.account}
             />   
+            <Input
+              autoCorrect={false}
+              width={154}
+              height={SIZES.padding * 2}
+              maxLength={16}
+              size={SIZES.caption}
+              value={currentService.serviceName}
+            /> 
             <Dropdown
               label='Select Plan'
-              data={data}
+              data={variationDetails}
               fontSize={12}
-              onChangeText={text => {
+              onChangeText={(text, index) => {
                 setValue('cable', text)
+                setVariationData(variationDetails[index])
               }}
               containerStyle={{
                 borderWidth: 1,
@@ -123,14 +115,13 @@ const CableSubscribeScreen = props => {
               }}
             />
             <Input
+              autoCorrect={false}
               width={154}
+              height={SIZES.padding * 2}
               maxLength={16}
               size={SIZES.caption}
-              placeholder={"Amount"}
-              onChangeText={text => {
-                setValue('amount', parseInt(text));
-              }}
-            />
+              value={vendorDetails.name}
+            /> 
             <Block
               row
               paddingHorizontal={SIZES.base}
