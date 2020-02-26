@@ -10,8 +10,10 @@ const ServiceCard = props => {
   const { getVariationDetails, setService } = vendorContext
 
   const onSubmit = async () => {
-    const result = await getVariationDetails({ "serviceType": item.item.serviceType, "serviceName": item.item.serviceName})
-    if (result !== 200) return 
+    if (item.item.variation) {
+
+    await getVariationDetails({ "serviceType": item.item.serviceType, "serviceName": item.item.serviceName})
+    }
     setService(item.item)
     if (item.item.verify) {
       props.navigation.navigate("VerifyServiceScreen")

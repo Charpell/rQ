@@ -27,7 +27,7 @@ const VerifyService = props => {
   const authContext = useContext(AuthContext)
   const vendorContext = useContext(VendorContext)
 
-  const { getCabletvDetails, payForCable, variationDetails, currentService } = vendorContext
+  const { getCabletvDetails, payForCable, variationDetails, currentService, getElectricityDetails } = vendorContext
   
 
   const { register, handleSubmit, setValue, errors } = useForm()
@@ -39,9 +39,15 @@ const VerifyService = props => {
   const onSubmit = async data => {
     const newData = { serviceName: currentService.serviceName, ...data}
     try {
-      const result = await getCabletvDetails(newData)
-      if (result !== 200) return
-      screenType()
+      if (currentService.serviceType === "CABLETV") {
+        const result = await getCabletvDetails(newData)
+        if (result !== 200) return
+        screenType()
+      } else {
+        const result = await getElectricityDetails(newData)
+        if (result !== 200) return       
+        screenType()
+      }
     } catch (error) {
       console.log(error)
     }
@@ -67,6 +73,8 @@ const VerifyService = props => {
     switch(currentService.serviceType) {
       case "CABLETV": 
         return "smartCardNumber"
+      case "ELECTRICITY": 
+        return "meterNumber"
       default:
         return ""
     }

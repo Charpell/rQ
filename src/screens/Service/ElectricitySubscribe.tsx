@@ -27,7 +27,7 @@ const ElectricitySubscribeScreen = props => {
   const authContext = useContext(AuthContext)
   const vendorContext = useContext(VendorContext)
 
-  const { state, loading, getElectricityDetails, payForElectricity } = vendorContext
+  const { state, loading, payForElectricity, vendorDetails, currentService } = vendorContext
   
 
   const { register, handleSubmit, setValue, errors } = useForm()
@@ -36,7 +36,8 @@ const ElectricitySubscribeScreen = props => {
     }])
 
   const onSubmit = data => {
-    payForElectricity(data)
+    const newData = { meterNumber: vendorDetails.account, serviceName: currentService.serviceName, customernumber: vendorDetails.customernumber, paymentMadeWith: "WALLET",...data}
+    payForElectricity(newData)
       .then((response) => {
         if (response.status === "failure") {
           console.log(response.message)
@@ -50,10 +51,8 @@ const ElectricitySubscribeScreen = props => {
   }
 
   useEffect(() => {
-    register({ name: "phone"}, { required: true, maxLength: 11, minLength: 1 })
-    register({ name: "meterNumber"}, { required: true })
+    register({ name: "mobileNumber"}, { required: true, maxLength: 11, minLength: 1 })
     register({ name: "amount"}, { required: true, pattern: /\d+/ })
-    register({ name: "disco"}, { required: true })
   }, [register])
 
   return (
@@ -85,7 +84,7 @@ const ElectricitySubscribeScreen = props => {
               size={SIZES.caption}
               placeholder={"Recipient Phone Number"}
               onChangeText={text => {
-                setValue('phone', text);
+                setValue('mobileNumber', text);
               }}
             />  
             <Input
@@ -95,32 +94,8 @@ const ElectricitySubscribeScreen = props => {
               maxLength={16}
               keyboardType="number-pad"
               size={SIZES.caption}
-              placeholder={"Meter Number"}
-              onChangeText={text => {
-                setValue('meterNumber', text);
-              }}
+              value={vendorDetails.account}
             />   
-            <Dropdown
-              label='Select Plan'
-              data={data}
-              fontSize={12}
-              onChangeText={text => {
-                setValue('disco', text)
-              }}
-              containerStyle={{
-                borderWidth: 1,
-                height:  SIZES.base * 6,
-                borderRadius: SIZES.radius * 3,
-                borderColor: rgba(COLORS.white, 0.1),
-                color: COLORS.tertiary,
-                fontSize: SIZES.font,
-                backgroundColor: COLORS.white,
-                justifyContent: 'center',
-                paddingLeft: 35,
-                marginTop: 10,
-                marginBottom: 10
-              }}
-            />
             <Input
               width={154}
               maxLength={16}
@@ -129,6 +104,18 @@ const ElectricitySubscribeScreen = props => {
               onChangeText={text => {
                 setValue('amount', parseInt(text));
               }}
+            />
+            <Input
+              width={154}
+              maxLength={16}
+              size={SIZES.caption}
+              value={vendorDetails.name}
+            />
+            <Input
+              width={154}
+              maxLength={16}
+              size={SIZES.caption}
+              value={currentService.serviceName}
             />
             <Block
               row
