@@ -28,14 +28,12 @@ const SupportScreen = props => {
                   flex:1,
                   flexDirection: 'row',
                   flexWrap: 'wrap',
-                  // alignItems: '',
                   paddingTop: 30
               }}
               >
 
               <Button
                   white
-                  //   flex={0.4}
                   height={SIZES.base * 10}
                   width={107}
                   shadow
@@ -45,7 +43,7 @@ const SupportScreen = props => {
                   paddingHorizontal
                   paddingVertical
                   marginHorizontal
-                  //   onPress={() => navigation.navigate("")}
+
                   >
                   <Block middle center paddingHorizontal={40}>
                       <ImageIcon
@@ -76,7 +74,7 @@ const SupportScreen = props => {
                   </Button>
                   <Button
                   white
-                  //   flex={0.4}
+
                   height={SIZES.base * 10}
                   width={107}
                   shadow
@@ -168,7 +166,6 @@ const SupportScreen = props => {
                   }}>
                   <Button
                   white
-                  //   flex={0.4}
                   height={SIZES.base * 10}
                   width={107}
                   shadow
@@ -178,7 +175,6 @@ const SupportScreen = props => {
                   paddingHorizontal
                   paddingVertical
                   marginHorizontal
-                  //   onPress={() => navigation.navigate("")}
                   >
                   <Block middle center paddingHorizontal={40}>
                       <ImageIcon

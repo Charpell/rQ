@@ -43,10 +43,7 @@ import {
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
         />
-        {/* <Block color padding row style={{justifyContent: "space-between"}}>
-          <Text>hi</Text>
-          <Text>hi</Text>
-        </Block> */}
+
        
        <Block center paddingTop={30}> 
       <Button
@@ -83,32 +80,3 @@ import {
 }
 
 }
-
-
-
-// Maroof Shittu   03:46 PM
-// no, distractions
-
-// can't stay long but...
-
-// the idea for the other issue screen is
-
-// a block with one input in it
-
-// and one block under it that has those two icons
-
-// the input is multiline just like you stated but there are some additional props you will set to make  it work well
-
-// http://reactnative.dev/docs/textinput#multiline
-
-// read this props description
-
-// you'll need to add the textAlignVertical={true} prop
-
-// then you'll add numberOfLines prop as well
-
-// hope this wouuld be helpful
-
-// but I gotta go
-
-// has left the Live Share session
