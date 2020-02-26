@@ -614,3 +614,17 @@ export const cards = [
   }
 ];
 
+export const fullAirtimeTransaction = {
+  id: 'W588689961',
+  type: 'airtime',
+  amount: '20000',
+  date: '28 Jan 2020 06:57:45',
+  status: 'Successful',
+  service: 'MTN',
+  sender: '',
+  senderNumber: '',
+  phone: '',
+  charges: '0',
+  commission: '0',
+  Narration: ''
+}

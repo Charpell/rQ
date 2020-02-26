@@ -19,7 +19,12 @@ const Transaction = props => {
       transparent
       padding={0}
       margin={0}
-      onPress={() => navigation.navigate("TransactionSummary", { transaction })}
+      onPress={() =>
+        navigation.navigate("TransactionSummary", {
+          id: transaction.id,
+          type: type
+        })
+      }
       nativeFeedback={true}
     >
       <Block row space="between" middle center padding={SIZES.base}>
@@ -45,7 +50,7 @@ const Transaction = props => {
 export default withNavigation(Transaction);
 
 Transaction.defaultProps = {
-  type: null,
-  date: null,
-  amount: null
+  type: "",
+  date: "",
+  amount: ""
 };

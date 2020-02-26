@@ -81,6 +81,6 @@ const TransactionNavigator = createStackNavigator(
       }
     }
   },
-  { mode: "modal", defaultNavigationOptions: { ...headerStyles } }
+  { defaultNavigationOptions: { ...headerStyles } }
 );
 export default TransactionNavigator;

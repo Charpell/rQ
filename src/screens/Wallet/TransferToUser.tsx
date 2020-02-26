@@ -6,7 +6,8 @@ import {
   Input,
   Button,
   ForwardButton,
-  Beneficiaries
+  Beneficiaries,
+  FeedBack
 } from "../../components";
 import { SIZES, COLORS } from "../../utils/theme";
 
@@ -16,6 +17,7 @@ const TransferToUser = () => {
   const [accNumberValue, onAccNumberChange] = useState("");
   const [bankNameValue, onBankNameChange] = useState("");
   const [savePayment, setSavePayment] = useState(false);
+  const [finished, setFinished] = useState(false);
   const [narrationValue, onNarrationChange] = useState("");
   return (
     <ScrollView>
@@ -113,6 +115,7 @@ const TransferToUser = () => {
               width={SIZES.width * 0.7}
               height={SIZES.base * 4.5}
               radius={SIZES.btnRadius}
+              onPress={() => setFinished(true)}
             >
               <Text
                 white
@@ -128,6 +131,14 @@ const TransferToUser = () => {
           </Block>
         </Block>
       </Block>
+      <FeedBack
+        title="Successful"
+        message="Your transaction has been successfully Thanks for using our application"
+        btnText="OK"
+        icon="add"
+        visible={finished}
+        closeModal={() => setFinished(false)}
+      />
     </ScrollView>
   );
 };

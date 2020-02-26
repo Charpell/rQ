@@ -10,6 +10,7 @@ import {
   Modal
 } from "../../components";
 import { SIZES, COLORS } from "../../utils/theme";
+import FeedBack from "../../components/FeedBack";
 
 const TransferToBankAccount = () => {
   const [amountValue, onAmountChange] = useState("");
@@ -121,6 +122,14 @@ const TransferToBankAccount = () => {
           </Block>
         </Block>
       </Block>
+      <FeedBack
+        title="Successful"
+        message="Your transaction has been successfully Thanks for using our application"
+        btnText="OK"
+        icon="add"
+        visible={finished}
+        closeModal={() => setFinished(false)}
+      />
     </ScrollView>
   );
 };

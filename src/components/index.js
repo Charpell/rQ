@@ -28,6 +28,8 @@ import ServiceList from './ServiceList';
 import Beneficiaries from './Beneficiaries';
 import CloseButton from './CloseButton'
 import Header from './Header'
+import FeedBack from './FeedBack';
+import Modal from './Modal';
 
 export {
   Block,
@@ -58,5 +60,7 @@ export {
   ServiceList,
   Beneficiaries,
   CloseButton,
-  Header
+  Header,
+  FeedBack,
+  Modal
 };

@@ -1,19 +1,16 @@
-import React from 'react'
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import React from "react";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
-
-
-import UserOnboarding from '../screens/Onboarding/UserOnboarding'
-import AuthNavigator from './AuthNavigator'
-import HomeNavigator from './HomeDrawer'
-import LandingScreen from '../screens/LandingScreen'
+import UserOnboarding from "../screens/Onboarding/UserOnboarding";
+import AuthNavigator from "./AuthNavigator";
+import HomeNavigator from "./HomeDrawer";
+import LandingScreen from "../screens/LandingScreen";
 
 const RootNavigator = createSwitchNavigator({
-	  LandingScreen,
-
   HomeNavigator,
+  LandingScreen,
   UserOnboarding,
-  AuthNavigator,
-})
+  AuthNavigator
+});
 
-export default createAppContainer(RootNavigator)
+export default createAppContainer(RootNavigator);

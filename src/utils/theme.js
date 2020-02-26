@@ -8,6 +8,7 @@ export const COLORS = {
   tertiary: "#334355",
   background: "#F2F5F8",
   inactiveTab: '#D1DCFF',
+  accent: "#3D55F0",
 
   // non-colors
   black: "#000020",
@@ -20,7 +21,8 @@ export const COLORS = {
   success: "#4CD964",
   info: "#4DA1FF",
   gray2: "#7892E6",
-  muted: "#C1C6CB"
+  muted: "#C1C6CB",
+  muted2: "#AEB3B9"
 };
 
 export const SIZES = {
