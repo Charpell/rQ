@@ -5,7 +5,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import Home from "./HomeNavigator";
 import Transactions from "./TransactionNavigator";
 import Wallet from "./WalletNavigator";
-import Support from "./SupportNavigator";
+import Account from "./AccountNavigator";
 import { SIZES, COLORS } from "../../utils/theme";
 import { Text, BackButton } from "../../components";
 import { navigation } from "../../constants";
@@ -137,9 +137,9 @@ const BottomTab = createBottomTabNavigator(
         };
       }
     },
-    Support: {
+    Account: {
       // added the support navigator
-      screen: Support,
+      screen: Account,
       navigationOptions({ screenProps, navigation }) {
         const { theme } = screenProps;
         const { routeName } = navigation.state;
