@@ -33,7 +33,7 @@ const VendorState = props => {
   
   const getElectricityDetails = async formData => {
     setLoading(true)
-    const result = await apiCalls('services/electricity/meter/verify', formData)
+    const result = await apiCalls('services/electricity/verify', formData)
     setLoading(false)
 
 
@@ -42,6 +42,7 @@ const VendorState = props => {
         type: GET_VENDOR_DETAILS,
         payload: result.data.data
       })
+      return result.status
     } else {
       dispatch({
         type: VENDORS_ERROR,
@@ -71,9 +72,11 @@ const VendorState = props => {
   }
 
   const payForElectricity = async formData => {
+    console.log('formData', formData)
     setLoading(true)
     try {
-      const result = await apiCalls('services/electricity/vend', formData)
+      const result = await apiCalls('services/electricity/pay', formData)
+      console.log('result', result)
       setLoading(false)
 
 
