@@ -16,6 +16,8 @@ import WithdrawalScreen from '../../screens/Wallet/WithdrawalScreen';
 import DataSubscribeScreen from '../../screens/Service/DataSubscribe'
 import CableSubscribeScreen from '../../screens/Service/CableSubscribe'
 import ElectricitySubscribeScreen from '../../screens/Service/ElectricitySubscribe'
+import VerifyServiceScreen from '../../screens/Service/VerifyService'
+import AirtimeServiceScreen from '../../screens/Service/AirtimeSubscribe'
 const HomeScreens = createStackNavigator(
   {
     HomeScreen: {
@@ -83,6 +85,18 @@ const HomeScreens = createStackNavigator(
     },
     ElectricitySubscribeScreen: {
       screen: ElectricitySubscribeScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
+    VerifyServiceScreen: {
+      screen: VerifyServiceScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerShown: false
+      })
+    },
+    AirtimeServiceScreen: {
+      screen: AirtimeServiceScreen,
       navigationOptions: ({ navigation }) => ({
         headerShown: false
       })

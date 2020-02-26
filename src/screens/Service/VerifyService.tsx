@@ -17,49 +17,66 @@ import { savedBeneficiaries } from "../../data";
 import { Ionicons } from "@expo/vector-icons";
 import { Dropdown } from 'react-native-material-dropdown'
 import { rgba, mergeTheme } from "../../utils";
+import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../contex/auth/authState'
 import { VendorContext } from '../../contex/vendor/vendorState'
-import { useForm } from 'react-hook-form'
 
 
 
-const ElectricitySubscribeScreen = props => {
+const VerifyService = props => {
   const authContext = useContext(AuthContext)
   const vendorContext = useContext(VendorContext)
 
-  const { state, loading, getElectricityDetails, payForElectricity } = vendorContext
+  const { getCabletvDetails, payForCable, variationDetails, currentService } = vendorContext
   
 
   const { register, handleSubmit, setValue, errors } = useForm()
-  const [ data, setData ] = useState([{
-      value: 'AEDC_PREPAID',
-    }])
-
-  const onSubmit = data => {
-    payForElectricity(data)
-      .then((response) => {
-        if (response.status === "failure") {
-          console.log(response.message)
-        } else {
-          console.log('response', response)
-        }
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
-  }
 
   useEffect(() => {
-    register({ name: "phone"}, { required: true, maxLength: 11, minLength: 1 })
-    register({ name: "meterNumber"}, { required: true })
-    register({ name: "amount"}, { required: true, pattern: /\d+/ })
-    register({ name: "disco"}, { required: true })
+    register({ name: placeholderType() }, { required: true })
   }, [register])
+
+  const onSubmit = async data => {
+    const newData = { serviceName: currentService.serviceName, ...data}
+    try {
+      const result = await getCabletvDetails(newData)
+      if (result !== 200) return
+      screenType()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+
+  const screenType = () => {
+    switch(currentService.serviceType) {
+      case "CABLETV": 
+      return props.navigation.navigate("CableSubscribeScreen")
+      case "ELECTRICITY": 
+      return props.navigation.navigate("ElectricitySubscribeScreen")
+      case "AIRTIME": 
+      return props.navigation.navigate("AirtimeServiceScreen")
+      case "DATA": 
+      return props.navigation.navigate("DataSubscribeScreen")
+      default:
+        return ""
+    }
+  }
+
+  const placeholderType = () => {
+    switch(currentService.serviceType) {
+      case "CABLETV": 
+        return "smartCardNumber"
+      default:
+        return ""
+    }
+  }
+  
 
   return (
     <Block safe color={COLORS.background}>
       <Header 
-        title="Electricity"
+        title="Verify Service"
         renderLeft={() => {
           return (
             <ImageIcon name="back" />
@@ -70,7 +87,7 @@ const ElectricitySubscribeScreen = props => {
         }}
       />
       <Text primary sfregular size={SIZES.subtitle} margin={20}>
-        Kindly Subscribe for your Electricity
+        Verify {currentService.serviceType}
       </Text>
       <Block
             paddingHorizontal={SIZES.base * 2}
@@ -81,54 +98,17 @@ const ElectricitySubscribeScreen = props => {
               width={154}
               height={SIZES.padding * 2}
               maxLength={16}
-              keyboardType="number-pad"
               size={SIZES.caption}
-              placeholder={"Recipient Phone Number"}
+              placeholder={placeholderType()}
               onChangeText={text => {
-                setValue('phone', text);
+                setValue(placeholderType(), text);
               }}
             />  
             <Input
-              autoCorrect={false}
-              width={154}
-              height={SIZES.padding * 2}
-              maxLength={16}
-              keyboardType="number-pad"
-              size={SIZES.caption}
-              placeholder={"Meter Number"}
-              onChangeText={text => {
-                setValue('meterNumber', text);
-              }}
-            />   
-            <Dropdown
-              label='Select Plan'
-              data={data}
-              fontSize={12}
-              onChangeText={text => {
-                setValue('disco', text)
-              }}
-              containerStyle={{
-                borderWidth: 1,
-                height:  SIZES.base * 6,
-                borderRadius: SIZES.radius * 3,
-                borderColor: rgba(COLORS.white, 0.1),
-                color: COLORS.tertiary,
-                fontSize: SIZES.font,
-                backgroundColor: COLORS.white,
-                justifyContent: 'center',
-                paddingLeft: 35,
-                marginTop: 10,
-                marginBottom: 10
-              }}
-            />
-            <Input
               width={154}
               maxLength={16}
               size={SIZES.caption}
-              placeholder={"Amount"}
-              onChangeText={text => {
-                setValue('amount', parseInt(text));
-              }}
+              value={currentService.serviceName}
             />
             <Block
               row
@@ -162,4 +142,4 @@ const ElectricitySubscribeScreen = props => {
     </Block>
   );
 };
-export default ElectricitySubscribeScreen;
+export default VerifyService;

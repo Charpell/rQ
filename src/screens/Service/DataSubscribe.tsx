@@ -27,7 +27,7 @@ const DataSubscribeScreen = props => {
   const authContext = useContext(AuthContext)
   const vendorContext = useContext(VendorContext)
 
-  const { payForData } = vendorContext
+  const { payForData, variationDetails } = vendorContext
   
 
   const { register, handleSubmit, setValue, errors } = useForm()
@@ -42,9 +42,10 @@ const DataSubscribeScreen = props => {
   }, [register])
 
   const onSubmit = data => {
-    const newData = { network: props.navigation.state.params.name, ...data }
-    console.log('newData', newData)
+    // const newData = { network: props.navigation.state.params.name, ...data }
+    // console.log('newData', newData)
   }
+  
 
   return (
     <Block safe color={COLORS.background}>
@@ -63,7 +64,6 @@ const DataSubscribeScreen = props => {
         Kindly enter phone number
       </Text>
         <Block flex={0.1} center middle margin={[60, 0, 0]}>
-          <ImageIcon name={props.navigation.state.params.data} style={{ width: 100, height: 100 }}/>
         </Block>
       <Block
             paddingHorizontal={SIZES.base * 2}
@@ -83,7 +83,7 @@ const DataSubscribeScreen = props => {
             />    
             <Dropdown
               label='Select Plan'
-              data={data}
+              data={variationDetails}
               fontSize={12}
               onChangeText={text => {
                 setValue('servicePlanCode', text)

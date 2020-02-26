@@ -6,8 +6,8 @@ import {SIZES} from '../utils/theme'
 const ServiceList = props => {
   const { service, category } = props;
 
-  const renderService = ({ item }) => (
-    <ServiceCard style={styles.serviceCardStyles} name={item.name} icon={item.icon} screen={item.screen} />
+  const renderService = (item) => (
+    <ServiceCard style={styles.serviceCardStyles} item={item} />
   );
   return (
     <Block marginTop={SIZES.padding}>

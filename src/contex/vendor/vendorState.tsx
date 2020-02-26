@@ -1,6 +1,6 @@
-import React, { useReducer, createContext, useState, useContext } from 'react';
-
-import axios from '../../utils/axios'
+import React, { useReducer, createContext, useState, useContext, useMemo } from 'react';
+import axios from 'axios'
+import apiCalls, { getAxios } from '../../utils/axios'
 import vendorReducer from './vendorReducer'
 
 export const VendorContext = createContext(null)
@@ -10,12 +10,19 @@ import {
   VENDORS_ERROR,
   BUY_VENDOR,
   GET_VENDOR_DETAILS,
+  GET_VARIATION_DETAILS,
+  SET_SERVICE,
+  GET_ALL_SERVICE
 } from '../types'
 
 const VendorState = props => {
   const initialState = {
     userData: null,
-    errors: null
+    errors: null,
+    variationDetails: [],
+    vendorDetails: [],
+    currentService: [],
+    service: []
   }
 
   const [state, dispatch] = useReducer(vendorReducer, initialState)
@@ -26,59 +33,60 @@ const VendorState = props => {
   
   const getElectricityDetails = async formData => {
     setLoading(true)
-    const result = await axios('services/electricity/meter/verify', formData)
+    const result = await apiCalls('services/electricity/meter/verify', formData)
+    setLoading(false)
+
 
     if (result.data.status === 'success') {
       dispatch({
         type: GET_VENDOR_DETAILS,
         payload: result.data.data
       })
-      setLoading(false)
     } else {
       dispatch({
         type: VENDORS_ERROR,
         payload: result
       })
-      setLoading(false)
     }
   }
 
   const getCabletvDetails = async formData => {
     setLoading(true)
-    const result = await axios('services/cabletv/verify', formData)
+    const result = await apiCalls('services/cabletv/verify', formData)
+    setLoading(false)
+
 
     if (result.data.status === 'success') {
       dispatch({
         type: GET_VENDOR_DETAILS,
         payload: result.data.data
       })
-      setLoading(false)
+      return result.status
     } else {
       dispatch({
         type: VENDORS_ERROR,
         payload: result
       })
-      setLoading(false)
     }
   }
 
   const payForElectricity = async formData => {
     setLoading(true)
     try {
-      const result = await axios('services/electricity/vend', formData)
+      const result = await apiCalls('services/electricity/vend', formData)
+      setLoading(false)
+
 
       if (result.data.status === 'success') {
         dispatch({
           type: BUY_VENDOR,
           payload: result.data.data
         })
-        setLoading(false)
       } else {
         dispatch({
           type: VENDORS_ERROR,
           payload: result
         })
-        setLoading(false)
       }
       return result.data
     } catch (error) {
@@ -89,20 +97,21 @@ const VendorState = props => {
   const payForCable = async formData => {
     setLoading(true)
     try {
-      const result = await axios('services/cabletv/vend', formData)
+      const result = await apiCalls('services/cabletv/pay', formData)
+      setLoading(false)
+
 
       if (result.data.status === 'success') {
         dispatch({
           type: BUY_VENDOR,
           payload: result.data.data
         })
-        setLoading(false)
+        return result.status
       } else {
         dispatch({
           type: VENDORS_ERROR,
           payload: result
         })
-        setLoading(false)
       }
       return result.data
     } catch (error) {
@@ -112,40 +121,41 @@ const VendorState = props => {
 
   const getDataDetails = async formData => {
     setLoading(true)
-    const result = await axios('services/data/verify', formData)
+    const result = await apiCalls('services/data/verify', formData)
+    setLoading(false)
+
 
     if (result.data.status === 'success') {
       dispatch({
         type: GET_VENDOR_DETAILS,
         payload: result.data.data
       })
-      setLoading(false)
     } else {
       dispatch({
         type: VENDORS_ERROR,
         payload: result
       })
-      setLoading(false)
     }
   }
 
   const payForData = async formData => {
     setLoading(true)
     try {
-      const result = await axios('services/data/vend', formData)
+      const result = await apiCalls('services/data/vend', formData)
+      setLoading(false)
+
 
       if (result.data.status === 'success') {
         dispatch({
           type: BUY_VENDOR,
           payload: result.data.data
         })
-        setLoading(false)
+        return result.status
       } else {
         dispatch({
           type: VENDORS_ERROR,
           payload: result
         })
-        setLoading(false)
       }
       return result.data
     } catch (error) {
@@ -154,9 +164,11 @@ const VendorState = props => {
   }
 
   const payForAirtime = async formData => {
-    console.log("here")
+    console.log('formData', formData)
     setLoading(true)
-    const result = await axios('services/airtime/vend', formData)
+    const result = await apiCalls('services/airtime/pay', formData)
+    setLoading(false)
+
     console.log("result", result)
 
     if (result.data.status === 'success') {
@@ -164,34 +176,102 @@ const VendorState = props => {
         type: BUY_VENDOR,
         payload: result.data.data
       })
-      setLoading(false)
     } else {
       dispatch({
         type: VENDORS_ERROR,
         payload: result
       })
-      setLoading(false)
     }
   }
+
+  const getVariationDetails = async formData => {
+    setLoading(true)
+    try {
+      const result = await apiCalls('services/variation', formData)
+      setLoading(false)
+
+  
+      if (result.data.status === 'success') {
+        dispatch({
+          type: GET_VARIATION_DETAILS,
+          payload: result.data.data
+        })
+        return result.status
+      } else {
+        dispatch({
+          type: VENDORS_ERROR,
+          payload: result
+        })
+      }
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+
+  const getAllService = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    setLoading(true)
+    try {
+      const result = await axios('https://rubeepay.herokuapp.com/rbq/v1/services', config)
+      setLoading(false)
+
+  
+      if (result.data.status === 'success') {
+        dispatch({
+          type: GET_ALL_SERVICE,
+          payload: result.data.data
+        })
+      } else {
+        dispatch({
+          type: VENDORS_ERROR,
+          payload: result
+        })
+      }
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+
+  const setService = formData => {
+    dispatch({
+      type: SET_SERVICE,
+      payload: formData
+    })
+  }
+
+  const values = useMemo(() => {
+    return {
+      userData: state.userData,
+      errors: state.errors,
+      loading,
+      getElectricityDetails,
+      state,
+      getCabletvDetails,
+      payForElectricity,
+      payForCable,
+      user,
+      getDataDetails,
+      payForData,
+      payForAirtime,
+      getVariationDetails,
+      variationDetails: state.variationDetails,
+      vendorDetails: state.vendorDetails,
+      setService,
+      currentService: state.currentService,
+      getAllService,
+      service: state.service
+    }
+  })
 
 
 
   return (
     <VendorContext.Provider
-      value={{
-        userData: state.userData,
-        errors: state.errors,
-        loading,
-        getElectricityDetails,
-        state,
-        getCabletvDetails,
-        payForElectricity,
-        payForCable,
-        user,
-        getDataDetails,
-        payForData,
-        payForAirtime
-      }}
+      value={values}
     >
       {props.children}
     </VendorContext.Provider>
