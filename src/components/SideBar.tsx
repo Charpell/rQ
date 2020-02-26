@@ -35,9 +35,11 @@ export default function SideBar ({ navigation, style }) {
               </View>
           </View>
 
-         {
+          {
            sideMenuBar.map((data, index) => (
-            <TouchableOpacity key={index} style={ [styles.menu, active === index ? styles.active : null ] } onPress={() => setActive(index)}>
+            <TouchableOpacity key={index} style={ [styles.menu, active === index ? styles.active : null ] } onPress={() => { setActive(index)
+              navigation.navigate(data.screen)
+            }}>
               <FontAwesome name={data.icon} color={'white'} size={24} />
                 <Text style={styles.menuText} >{data.name}</Text>
             </TouchableOpacity>

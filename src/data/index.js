@@ -95,7 +95,8 @@ export const sideMenuBar = [
   {
     id: 5,
     icon: "question",
-    name: "  FAQ"
+    name: "  Help Center",
+    screen: "SupportScreen"
   },
   {
     id: 6,
