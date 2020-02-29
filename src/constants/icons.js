@@ -247,6 +247,31 @@ const icons = {
     width: 28,
     height: 20
   },
+  badge: {
+    icon: require("../assets/iconone/badge.png"),
+    width: 28,
+    height: 29
+  },
+  calling:{
+    icon: require("../assets/iconone/calling.png"),
+    width: 15,
+    height: 15
+  },
+  question:{
+    icon: require("../assets/iconone/question.png"),
+    width: 17,
+    height: 17
+  },
+  comment:{
+    icon: require("../assets/iconone/comment.png"),
+    width: 17,
+    height: 17
+  },
+  chat:{
+    icon: require("../assets/iconone/chat.png"),
+    width: 17,
+    height: 17
+  },
 };
 
 export default icons;
