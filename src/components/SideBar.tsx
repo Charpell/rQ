@@ -42,6 +42,7 @@ export default function SideBar ({ navigation, style }) {
                             sfregular
                             height={SIZES.body}
                             size={SIZES.caption}
+                            onPress={() => navigation.navigate("AccountScreen")}
                           >
                             KYC Level 1
                           </Text>
@@ -52,18 +53,23 @@ export default function SideBar ({ navigation, style }) {
 
               </View>
           </View>
+          <View style = {styles.lineStyle} />
+        
+        
 
           {
-           sideMenuBar.map((data, index) => (
+            sideMenuBar.map((data, index) => (
             <TouchableOpacity key={index} style={ [styles.menu, active === index ? styles.active : null ] } onPress={() => { setActive(index)
               navigation.navigate(data.screen)
             }}>
-              <FontAwesome name={data.icon} color={'white'} size={24} />
+              <ImageIcon  name={data.icon} size={30}/>
                 <Text style={styles.menuText} >{data.name}</Text>
             </TouchableOpacity>
+
            ))
          }
       </View>
+        <View style = {styles.lineStyle} />
         
       <Block center paddingTop={18}>
         <Button
@@ -139,9 +145,9 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
   },
   avatar: {
-      width: 64,
-      height: 64,
-      borderRadius: 64,
+      width: 80,
+      height: 80,
+      borderRadius: 80,
     },
     userInfos: {
       height: 50,
@@ -157,5 +163,10 @@ const styles = StyleSheet.create({
   active: { 
     backgroundColor: 'rgba(255,255,255,0.3)', 
     borderRadius: 5
-  }
+  },
+  lineStyle:{
+    borderWidth: 0.3,
+    borderColor:'#CCC7C4',
+    margin: 4,
+}
 })

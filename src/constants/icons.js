@@ -78,8 +78,8 @@ const icons = {
   },
   receiptAlt: {
     icon: require("../assets/iconone/receipt-alt.png"),
-    height: 20,
-    width: 18
+    height: 16,
+    width: 20
   },
   receipt: {
     icon: require("../assets/iconone/receipt.png"),
@@ -98,8 +98,8 @@ const icons = {
   },
   walletAlt: {
     icon: require("../assets/iconone/wallet-alt.png"),
-    height: 18,
-    width: 20
+    height: 20,
+    width: 27
   },
   userSquare: {
     icon: require("../assets/iconone/user-square.png"),
@@ -259,8 +259,8 @@ const icons = {
   },
   question:{
     icon: require("../assets/iconone/question.png"),
-    width: 17,
-    height: 17
+    width: 20,
+    height: 27
   },
   comment:{
     icon: require("../assets/iconone/comment.png"),
@@ -271,6 +271,26 @@ const icons = {
     icon: require("../assets/iconone/chat.png"),
     width: 17,
     height: 17
+  },
+  cogAlt: {
+    icon: require("../assets/iconone/cog-alt.png"),
+    width: 20,
+    height: 27
+  },
+  headphonesAlt: {
+    icon: require("../assets/iconone/headphones-alt.png"),
+    width: 20,
+    height: 27
+  },
+  envelopeAlt: {
+    icon: require("../assets/iconone/envelope-alt.png"),
+    width: 20,
+    height: 27
+  },
+  giftAlt: {
+    icon: require("../assets/iconone/gift-alt.png"),
+    width: 20,
+    height: 27
   },
 };
 
