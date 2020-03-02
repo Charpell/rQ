@@ -6,6 +6,7 @@ import {
     Text,
     Input,
     Button,
+    BackButton,
     CirIcon,
     ForwardButton,
     ImageIcon
@@ -18,6 +19,7 @@ const SupportScreen = props => {
   
       return (
           <Block color={COLORS.background } padding>
+               <BackButton navigation={navigation} />
             <Text primary sfregular size={SIZES.caption} paddingLeft>
               Welcome to our 24hrs help center
             </Text>

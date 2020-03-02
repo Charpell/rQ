@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TextInput, View, KeyboardAvoidingView, Alert } from 'react-native'
 import { useForm } from 'react-hook-form'
 
-import { Button, Block, Input, Text, ForwardButton, LottieAnimation, ToggleIcon } from '../../components';
+import { Button, BackButton, Block, Input, Text, ForwardButton, LottieAnimation, ToggleIcon } from '../../components';
 import { AuthContext } from '../../contex/auth/authState'
+import { SizeClassIOS } from 'expo/build/ScreenOrientation/ScreenOrientation';
 
 interface Props {
   navigation: any
@@ -50,21 +51,22 @@ export default function SignInScreen ({ navigation }) {
 
   return (
     <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'center' }} behavior="padding">
-      <View style={{ flex: 1, backgroundColor: '#173CBC', paddingHorizontal: 20, paddingTop: 50 }}>
+      <View style={{ flex: 1, backgroundColor: '#F2F5F8', paddingHorizontal: 20, paddingTop: 50 }}>
+      <BackButton navigation={navigation} />
       <View style={{ marginTop: 40, flex: 0.2 }}>
-        <Text white bold h1 marginBottom>Sign In</Text>
-        <Text white font marginTop>Hello there, sign in to continue</Text>
+        <Text primary semibold h1 marginBottom={40}>Sign In</Text>
+        <Text primary subtitle marginTop>Hello there, sign in to continue </Text>
       </View>
       
-      <View style={{ marginTop: 80 }}>
+      <View style={{ marginTop: 130 }}>
         <View style={{ marginBottom: 40 }}>
           <TextInput 
             style={{
-              width: '90%',
+              width: '100%',
               backgroundColor: '#ffffff',
-              padding: 25,
+              padding: 20,
               borderRadius: 15,
-              marginBottom: 10
+              marginBottom: 1
             }}
             placeholder={'Phone Number'}
             onChangeText={text => {
@@ -73,17 +75,17 @@ export default function SignInScreen ({ navigation }) {
             autoFocus
             keyboardType={"phone-pad"}
           />
-          {errors.phone && <Text>Phone Number is required</Text>}
+          {errors.phone && <Text>Couldn't find your Phone Number</Text>}
         </View>
         <View>
-          <View style={{ flexDirection: 'row', }}>
+          <View  style={{ flexDirection: 'row', }}>
             <TextInput 
               style={{
-                width: '90%',
+                width: '100%',
                 backgroundColor: '#ffffff',
-                padding: 25,
+                padding: 20,
                 borderRadius: 15,
-                marginBottom: 10
+                marginBottom: 70
               }}
               placeholder={'Enter Pin'}
               onChangeText={text => {
@@ -100,19 +102,25 @@ export default function SignInScreen ({ navigation }) {
       
 
       <View style={{ height: 200, alignItems: 'center', justifyContent: 'flex-end'}}>
-          <Button gradient onPress={handleSubmit(onSubmit)} style={{ marginVertical: 20, width: 300, borderRadius: 10, height: 50 }}>
+      <Button onPress={() => navigation.navigate('FinalScreen')} style={{ marginVertical: 20, width: 300, borderRadius: 10, height: 50 }}>
+      {/* onPress={handleSubmit(onSubmit)} */}
             
              
-                <Text bold white center>Log In</Text>
-                <ForwardButton />
-             
-          
+            <Text semibold white center>Log in</Text>
+            <ForwardButton />
+         
+      
+      </Button>
+
+      <Button withoutFeedback onPress={() => navigation.navigate('SignUpScreen')}>
+            <Text secondary subtitle style={{ marginTop: 20 }}>
+              Don't have an account? <Text primary semibold>Create Account</Text>
+            </Text>
           </Button>
 
-          <Button withoutFeedback onPress={() => navigation.navigate('SignUpScreen')}>
-            <Text gray2  style={{ marginTop: 20 }}>
-              Don't have an account? <Text white bold>Create Account</Text>
-            </Text>
+          <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
+           
+             <Text primary caption marginTop={15}>Forgot Password?</Text>
           </Button>
           </View>
 
@@ -120,3 +128,4 @@ export default function SignInScreen ({ navigation }) {
     </KeyboardAvoidingView>
   )
 }
+

@@ -41,25 +41,25 @@ const SignUpScreen = ({ navigation }) => {
   
 
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.accent, paddingHorizontal: 20, paddingTop: 50 }}>
+    <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 50 }}>
       <BackButton navigation={navigation} />
 
       <View style={{ marginTop: 20, flex: 0.1 }}>
-        <Text primary bold h3 marginBottom>Enter Mobile Number</Text>
+
         <Text primary font marginTop>Please enter your Mobile Phone Number.</Text>
       </View>
 
       <View style={{
         marginTop: 40,
-        padding: 20,
+        padding: 10,
         backgroundColor: '#ffffff',
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 15,
-        width: '90%'
+        width: '100%'
       }}>
         <Image source={require('../../assets/images/nigeria.jpeg')} style={{ width: 44, height: 44 }}/>
-        <Text>+234</Text>
+        <Text light>+234</Text>
         <View
           style={{
           borderLeftWidth: 1,
@@ -88,16 +88,20 @@ const SignUpScreen = ({ navigation }) => {
             />
           ) : (
             <Button  onPress={handleSubmit(onSubmit)} style={{ marginBottom: 10, width: 300, borderRadius: 10, height: 50 }}>
-                <Text bold white center>Send Code</Text>
+                <Text semibold white center>Send Code</Text>
                 <ForwardButton />
             </Button>
           )}
 
           <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
-            <Text secondary style={{ marginTop: 20 }}>
-              Already have a account? <Text primary bold>Sign in</Text>
+            <Text secondary subtitle style={{ marginTop: 20 }}>
+              Already have a account? <Text primary semibold>Sign in</Text>
             </Text>
           </Button>
+          <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
+           
+           <Text primary caption marginTop={15}>Forgot Password?</Text>
+        </Button>
           </View>
     </View>
   )
