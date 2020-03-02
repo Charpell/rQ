@@ -33,7 +33,7 @@ export default function LandingPageScreen ({ navigation }) {
 
           <View style={{ marginTop: 20 }}>
             <Text primary bold h3 marginBottom>Welcome</Text>
-            <Text primary font marginTop>Freedom of Banking at your finger tip.</Text>
+            <Text primary subtitle marginTop={SIZES.bases * 4}>Freedom of Banking at your finger tip.</Text>
           </View>
           
 
@@ -41,7 +41,7 @@ export default function LandingPageScreen ({ navigation }) {
           <Button  onPress={() => navigation.navigate('SignUpScreen')} style={{ marginVertical: 20, width: 300, borderRadius: 10, height: 50 }}>
             
              
-                <Text bold white center>Create an Account</Text>
+                <Text semibold white center>Create an Account</Text>
                 <ForwardButton />
              
           
@@ -49,8 +49,13 @@ export default function LandingPageScreen ({ navigation }) {
 
           <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
             <Text secondary  style={{ marginTop: 20 }}>
-              Already have a account? <Text primary bold>Sign in</Text>
+              Already have a account? <Text primary semibold>Sign in</Text>
             </Text>
+          </Button>
+
+          <Button withoutFeedback onPress={() => navigation.navigate('SignInScreen')}>
+           
+             <Text primary caption marginTop={15}>Forgot Password?</Text>
           </Button>
           </View>
         </View>
@@ -68,6 +73,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 0.7,
+    paddingTop: 50
     
   },
   logo: {
