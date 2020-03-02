@@ -6,7 +6,6 @@ import Support from "./SupportNavigator";
 import SideBar from "../components/SideBar";
 import { CloseButton } from "../components";
 import TransactionSummary from "../screens/Transactions/TransactionSummary";
-import { COLORS, SIZES } from "../utils/theme";
 
 export default createDrawerNavigator(
   {
@@ -15,7 +14,7 @@ export default createDrawerNavigator(
   },
   {
     contentComponent: props => <SideBar {...props} />,
-    drawerWidth: SIZES.width * 0.7,
+    drawerWidth: 269,
     drawerBackgroundColor: "transparent",
     contentOptions: {
       activeBackgrundColor: "transparent"

@@ -47,7 +47,14 @@ const SupportScreen = props => {
                   >
                   <Block middle center paddingHorizontal={40}>
                       <ImageIcon
-                      name="chat"
+                      style={{
+                          position: "absolute",
+                          top: 4
+                      }}
+                      name="moneyInsertArrow"
+                      />
+                      <ImageIcon
+                      name="moneyInsert"
                       style={{
                           position: "absolute",
                           top: 14
@@ -83,9 +90,16 @@ const SupportScreen = props => {
                       <ImageIcon
                       style={{
                           position: "absolute",
+                          top: 4
+                      }}
+                      name="moneyInsertArrow"
+                      />
+                      <ImageIcon
+                      name="moneyInsert"
+                      style={{
+                          position: "absolute",
                           top: 14
                       }}
-                      name="question"
                       />
                   </Block>
                   <Text
@@ -121,11 +135,17 @@ const SupportScreen = props => {
                       <ImageIcon
                       style={{
                           position: "absolute",
+                          top: 4
+                      }}
+                      name="moneyInsertArrow"
+                      />
+                      <ImageIcon
+                      name="moneyInsert"
+                      style={{
+                          position: "absolute",
                           top: 14
                       }}
-                      name="comment"
                       />
-                      
                   </Block>
                   <Text
                       sfregular
@@ -160,11 +180,17 @@ const SupportScreen = props => {
                       <ImageIcon
                       style={{
                           position: "absolute",
+                          top: 4
+                      }}
+                      name="moneyInsertArrow"
+                      />
+                      <ImageIcon
+                      name="moneyInsert"
+                      style={{
+                          position: "absolute",
                           top: 14
                       }}
-                      name="calling"
                       />
-
                   </Block>
                   <Text
                       sfregular
