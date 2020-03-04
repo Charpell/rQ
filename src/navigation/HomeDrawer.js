@@ -4,9 +4,9 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import BottomTabs from "./src";
 import Support from "./SupportNavigator";
 import SideBar from "../components/SideBar";
+import { COLORS, SIZES } from "../utils/theme";
 import { CloseButton } from "../components";
 import TransactionSummary from "../screens/Transactions/TransactionSummary";
-import { COLORS, SIZES } from "../utils/theme";
 
 export default createDrawerNavigator(
   {

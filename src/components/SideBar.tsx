@@ -14,10 +14,7 @@ export default function SideBar ({ navigation, style }) {
   const [ active, setActive ] = useState(0)
   const authContext = useContext(AuthContext)
 
-  const handleLogout = () => {
-    logout()
-    navigation.navigate("SignInScreen")
-  }
+
   
   return (
     <View style={[styles.sideMenu, style || {}]}>
