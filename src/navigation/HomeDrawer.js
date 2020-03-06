@@ -15,7 +15,7 @@ export default createDrawerNavigator(
   },
   {
     contentComponent: props => <SideBar {...props} />,
-    drawerWidth: SIZES.width * 0.7,
+    drawerWidth: 269,
     drawerBackgroundColor: "transparent",
     contentOptions: {
       activeBackgrundColor: "transparent"
