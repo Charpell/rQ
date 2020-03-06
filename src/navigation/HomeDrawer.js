@@ -4,14 +4,13 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import BottomTabs from "./src";
 import Support from "./SupportNavigator";
 import SideBar from "../components/SideBar";
-import { COLORS, SIZES } from "../utils/theme";
 import { CloseButton } from "../components";
 import TransactionSummary from "../screens/Transactions/TransactionSummary";
 
 export default createDrawerNavigator(
   {
     BottomTabs,
-    Support,
+    Support
   },
   {
     contentComponent: props => <SideBar {...props} />,
