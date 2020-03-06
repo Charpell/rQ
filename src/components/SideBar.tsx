@@ -14,12 +14,16 @@ export default function SideBar ({ navigation, style }) {
   const [ active, setActive ] = useState(0)
   const authContext = useContext(AuthContext)
 
+<<<<<<< HEAD
+
+=======
   const { logout } = authContext
 
   const handleLogout = () => {
     logout()
     navigation.navigate("SignInScreen")
   }
+>>>>>>> 140f4ee6667c74584fda005f2ec2460bc0bdb783
   
   return (
     <View style={[styles.sideMenu, style || {}]}>
@@ -88,11 +92,11 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
   },
   avatar: {
-      width: 60,
-      height: 60,
-      borderRadius: 30
-  },
-  userInfos: {
+      width: 90,
+      height: 90,
+      borderRadius: 100,
+    },
+    userInfos: {
       height: 50,
       justifyContent: 'center'
   },
