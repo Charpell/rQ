@@ -11,7 +11,7 @@ import TransactionSummary from "../screens/Transactions/TransactionSummary";
 export default createDrawerNavigator(
   {
     BottomTabs,
-    Support
+    Support,
   },
   {
     contentComponent: props => <SideBar {...props} />,
