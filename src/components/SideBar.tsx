@@ -142,9 +142,9 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
   },
   avatar: {
-      width: 80,
-      height: 80,
-      borderRadius: 80,
+      width: 90,
+      height: 90,
+      borderRadius: 100,
     },
     userInfos: {
       height: 50,
