@@ -41,7 +41,7 @@ export default function SideBar ({ navigation, style }) {
                             size={SIZES.caption}
                             onPress={() => navigation.navigate("AccountScreen")}
                           >
-                            KYC Level1
+                            KYC Level 1
                           </Text>
                         </Button>
                       </Block>
