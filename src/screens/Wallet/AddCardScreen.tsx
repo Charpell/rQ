@@ -18,7 +18,7 @@ const AddCardScreen = () => {
       <Block>
         <Button center middle radius={SIZES.radius * 3}>
           <Text white center>
-            Confirm
+            Confirm Test
           </Text>
         </Button>
       </Block>
