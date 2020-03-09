@@ -74,34 +74,8 @@ export const categories = [
 export const sideMenuBar = [
   {
     id: 1,
-    icon: "home",
+    icon: images.eye,
     name: "Home"
-  },
-  {
-    id: 2,
-    icon: "user-o",
-    name: "Profile"
-  },
-  {
-    id: 3,
-    icon: "cog",
-    name: "Account Settings"
-  },
-  {
-    id: 4,
-    icon: "comment-o",
-    name: "Referral"
-  },
-  {
-    id: 5,
-    icon: "question",
-    name: "  Help Center",
-    screen: "SupportScreen"
-  },
-  {
-    id: 6,
-    icon: "stack-exchange",
-    name: "Terms and Privacy"
   }
 ];
 
