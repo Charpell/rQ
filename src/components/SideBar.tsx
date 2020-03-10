@@ -58,7 +58,7 @@ export default function SideBar ({ navigation, style }) {
             <TouchableOpacity key={index} style={ [styles.menu, active === index ? styles.active : null ] } onPress={() => { setActive(index)
               navigation.navigate(data.screen)
             }}>
-              
+                <ImageIcon  name={data.icon} size={30}/>
                 <Text style={styles.menuText} >{data.name}</Text>
             </TouchableOpacity>
 

@@ -74,32 +74,32 @@ export const categories = [
 export const sideMenuBar = [
   {
     id: 1,
-    icon: "home",
-    name: "Home"
+    icon: "walletAlt",
+    name: "Wallet"
   },
   {
     id: 2,
-    icon: "user-o",
+    icon: "walletAlt",
     name: "Profile"
   },
   {
     id: 3,
-    icon: "cog",
+    icon: "walletAlt",
     name: "Account Settings"
   },
   {
     id: 4,
-    icon: "comment-o",
+    icon: "walletAlt",
     name: "Referral"
   },
   {
     id: 5,
-    icon: "question",
+    icon: "walletAlt",
     name: "  FAQ"
   },
   {
     id: 6,
-    icon: "stack-exchange",
+    icon: "walletAlt",
     name: "Terms and Privacy"
   }
 ];
