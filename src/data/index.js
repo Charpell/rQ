@@ -74,40 +74,45 @@ export const categories = [
 export const sideMenuBar = [
   {
     id: 1,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "atmCardAlt",
+    name: "Add Cards"
   },
   {
     id: 2,
     icon: "walletAlt",
-    name: "Home"
+    name: "Wallet"
   },
   {
     id: 3,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "question",
+    name: "Grow Wealth"
   },
   {
     id: 4,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "receiptAlt",
+    name: "Transactions"
   },
   {
     id: 5,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "giftAlt",
+    name: "Refer a friend",
   },
   {
     id: 6,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "envelopeAlt",
+    name: "Messages"
   },
   {
     id: 7,
-    icon: "walletAlt",
-    name: "Home"
+    icon: "headphonesAlt",
+    name: "Help Center",
+    screen: "SupportScreen"
   },
-
+  {
+    id: 6,
+    icon: "cogAlt",
+    name: "Settings"
+  }
 ];
 
 export const service = [
