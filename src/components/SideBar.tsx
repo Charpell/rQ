@@ -26,12 +26,7 @@ export default function SideBar ({ navigation, style }) {
               <Text primary sfmedium size={SIZES.subtitle}>Christopher Sani</Text>
                       <Block  paddingTop={7}>
                         <Button
-                          secondary
-                          center
-                          middle
-                          width={SIZES.width * 0.3}
-                          height={SIZES.base * 3.5}
-                          radius={SIZES.base * 12}
+                          
                         >
                           <Text
                             white
@@ -71,16 +66,6 @@ export default function SideBar ({ navigation, style }) {
       <Block center paddingTop={18}>
         <Button
           
-              gradient
-              startColor={"#FFCA00"}
-              endColor={"#FF9C52"}
-              start
-              end
-              center
-              middle
-              width={SIZES.width * 0.4}
-              height={SIZES.base * 3}
-              radius={SIZES.cardRadius}
             >
               <Block space="between" center padding middle row>
               <Text
