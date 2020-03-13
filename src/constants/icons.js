@@ -78,8 +78,8 @@ const icons = {
   },
   receiptAlt: {
     icon: require("../assets/iconone/receipt-alt.png"),
-    height: 16,
-    width: 20
+    height: 20,
+    width: 18
   },
   receipt: {
     icon: require("../assets/iconone/receipt.png"),
@@ -98,8 +98,8 @@ const icons = {
   },
   walletAlt: {
     icon: require("../assets/iconone/wallet-alt.png"),
-    height: 20,
-    width: 27
+    height: 18,
+    width: 20
   },
   userSquare: {
     icon: require("../assets/iconone/user-square.png"),
@@ -289,6 +289,16 @@ const icons = {
   },
   giftAlt: {
     icon: require("../assets/iconone/gift-alt.png"),
+    width: 20,
+    height: 27
+  },
+  signoutaAlt: {
+    icon: require("../assets/iconone/signouta-alt.png"),
+    width: 20,
+    height: 27
+  },
+  signoutcAlt: {
+    icon: require("../assets/iconone/signoutc-alt.png"),
     width: 20,
     height: 27
   },
