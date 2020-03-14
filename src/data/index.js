@@ -141,7 +141,7 @@ export const service = [
     id: 5,
     icon: "question",
     name: "Grow Wealth"
-  },
+  }, 
   {
     id: 6,
     icon: "stack-exchange",
