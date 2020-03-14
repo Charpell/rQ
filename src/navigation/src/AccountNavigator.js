@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import AccountScreen from "../../screens/Account/AccountScreen";
+import KycScreen from "../../screens/Account/KycScreen";
 import { headerStyles } from "../../constants/navigation";
 
 
@@ -11,7 +12,13 @@ const AccountNavigator = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: "User Profile"
       })
-    }
+    },
+    KycScreen: {
+      screen: KycScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "KYC Levels"
+      })
+    },
   },
   {
     initialRouteName: "AccountScreen",
