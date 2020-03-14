@@ -13,28 +13,37 @@ import {
   ImageIcon
 } from "../../components";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 // import ImageIcon from "../../components/primary/ImageIcon";
 
 const AccountScreen = props => {
-    
+  const { navigation } = props;
 
     return(
+      <ScrollView>
 
         <Block>
-            {/* ProfileImage */}
-            <Card color={"#F2F5F8"}paddingTop={70} shadow center middle column>
-                  <Image  
-                  style={ styles.avatar } source={{ uri: 'https://cl.ly/55da82beb939/download/avatar-default.jpg' }} 
-                  
-                  />
+          
+            <Card color={"#F2F5F8"} paddingTop={24} shadow center middle column>
+              <View>
+            <ImageIcon name="chris" style={ styles.avatar } />
+            <ImageIcon
+              name="camera"
+              style={{
+                position: "absolute",
+                bottom: 7,
+                right: 1
+              }}
+              />
+            </View>   
                   <Button
-            marginBottom={45}
-            marginTop={25}
-              center
-              middle
-              width={SIZES.width * 0.3}
-              height={SIZES.base * 4.5}
-              radius={115}
+            marginBottom={6}
+            marginTop={26}
+            center
+            middle
+            width={SIZES.width * 0.25}
+            height={SIZES.base * 3.5}
+            radius={115}
             //   onPress={() => setFinished(true)}
             >
               <Text
@@ -43,7 +52,7 @@ const AccountScreen = props => {
                 sfregular
                 height={SIZES.body}
                 size={SIZES.caption}
-              >
+                >
               EDIT PROFILE
               </Text>
             </Button>
@@ -51,129 +60,134 @@ const AccountScreen = props => {
 
 
 
-            <Block center middle padding>
+            <Block center  middle padding >
                 <Text>Account</Text>
             </Block>
-            
-            <View style={styles.hairline} />
+
+
+            <Block center middle padding paddingBottom={0}>
+              <Block  style={styles.lineStyle}/>
+            </Block>
+
+
+            <Block   padding={20} row>
+              <Card radius={18} padding={18}>
+                <Block row space="between" paddingBottom={29}>
+                  <Text subtitle>Current Limits</Text>
+                  <Text secondary subtitle>Level 1</Text>
+                </Block>
+
+
+                <Block row space="between" paddingBottom={8}>
+                  <Text small gray>Daily Transactions Limit</Text>
+                  <Text small gray>N30,000</Text>
+                </Block>
+                
+                
+                <Block row space="between" paddingBottom={18}>
+                  <Text small gray>Maximum balance</Text>
+                  <Text small gray>N500,000</Text>
+                </Block>
+                
+                
+                <TouchableOpacity  style={{ flexDirection: "row"}}  onPress={() => navigation.navigate("SignInScreen")}>
+        
+                            <Text primary semibold caption>View all KYC levels</Text>
+                            <Block>
+                            <ImageIcon
+                                name="signoutaAlt"
+                                style={{
+                                  position: "absolute",
+                                  right: 0,
+                                  bottom: 6,
+                                }}
+                                />                      
+                            </Block>
+                            
+                </TouchableOpacity>
+
+              </Card>
+            </Block>
 
 
 
-          {/* <Block padding={20}>             */}
-            <Card  row paddingLeft={20} paddingRight={20} paddingTop={18} radius={15} color={Colors.white} column>
-             
-             <Block row style={{ justifyContent: "space-between"}}> 
-             {/* leftside */}
-             <View style={{flexDirection: "column"}}>
-              <Text subtitle>Current Limits</Text>
-              
-              <Block paddingTop={14}>
-              <Text gray caption>Daily transactions limit</Text>
-              <Text gray caption>Maximum balance</Text>
-              </Block>
 
-              <Block paddingTop={15}>
-              <Text paddingTop={14} info small>View all KYC levels</Text>
-              </Block>
-              </View>
-
-              {/* rightSide */}
-             <View style={{flexDirection: "column"}}>
-              <Text subtitle color={Colors.primary}>Level 1</Text>
-              
-              <Block paddingTop={14}>
-              <Text paddingLeft={10} gray caption>N 50,000</Text>
-              <Text gray caption>N 700,000</Text>
-              </Block>
-              {/* to be corrected */}
-              <Block paddingTop={15}>
-              <Text paddingLeft={55} subtitle color={Colors.primary}>></Text>
-              </Block>
-              </View>
-
-              </Block>
-           </Card>
-           {/* </Block> */}
-
-
-            <Block paddingTop={40} center middle padding>
-              <Block>
+            <Block paddingTop={35}  center middle padding>
               <Button
               secondary
               center
               middle
-              width={SIZES.width * 0.7}
+              width={SIZES.width * 0.64}
               height={SIZES.base * 5.5}
               radius={SIZES.btnRadius}
-            >
+              >
               <Text
-                white
-                center
-                sfregular
-                height={SIZES.body}
-                size={SIZES.caption}
+              white
+              center
+              sfregular
+              height={SIZES.body}
+              size={SIZES.caption}
               >
               Upgrade to KYC Level 2
               </Text>
               <ForwardButton />
-            </Button>
-              </Block>
+              </Button>
+            </Block>
 
-              <Block>
+            <Block paddingTop={18}  center middle padding>
               <Button
-              
+              primary
               center
               middle
-              width={SIZES.width * 0.7}
+              width={SIZES.width * 0.64}
               height={SIZES.base * 5.5}
               radius={SIZES.btnRadius}
-            >
+              >
               <Text
-                white
-                center
-                sfregular
-                height={SIZES.body}
-                size={SIZES.caption}
+              white
+              center
+              sfregular
+              height={SIZES.body}
+              size={SIZES.caption}
               >
               Upgrade to Agent
               </Text>
               <ForwardButton />
-            </Button>
-              </Block>
+              </Button>
             </Block>
-
-
-
-
-
-
-
-
-
-
 
 
 
         </Block>
 
+            </ScrollView>
     )
 };
-
 export default AccountScreen;
 
 
+
+
+
+
 const styles = StyleSheet.create({
-avatar: {
-    width: 110,
-    height: 110,
-    borderRadius: 60
-},
 hairline: {
     backgroundColor: 'black',
     height: 2,
     width: 400
   },
-  
+  avatar: {
+    width: 90,
+    height: 100,
+    borderRadius: 30,
+  },
+    lineStyle:{
+    width: '90%',
+    borderWidth: 0.3,
+    borderColor:'#CCC7C4',
+    margin: 4,
+    
+}
 })
 
 
