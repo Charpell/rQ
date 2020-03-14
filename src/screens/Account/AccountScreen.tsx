@@ -14,7 +14,7 @@ import {
 } from "../../components";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
-// import ImageIcon from "../../components/primary/ImageIcon";
+
 
 const AccountScreen = props => {
   const { navigation } = props;
@@ -90,7 +90,7 @@ const AccountScreen = props => {
                 </Block>
                 
                 
-                <TouchableOpacity  style={{ flexDirection: "row"}}  onPress={() => navigation.navigate("SignInScreen")}>
+                <TouchableOpacity  style={{ flexDirection: "row"}}  onPress={() => navigation.navigate("KycScreen")}>
         
                             <Text primary semibold caption>View all KYC levels</Text>
                             <Block>
@@ -120,6 +120,7 @@ const AccountScreen = props => {
               width={SIZES.width * 0.64}
               height={SIZES.base * 5.5}
               radius={SIZES.btnRadius}
+              
               >
               <Text
               white
